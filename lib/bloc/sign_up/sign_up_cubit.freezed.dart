@@ -19,42 +19,7 @@ mixin _$SignUpState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            bool isLoading, bool isValid, String? errorMessage)
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoading, bool isValid, String? errorMessage)?
-        initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoading, bool isValid, String? errorMessage)?
-        initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  String? get succesMessge => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
@@ -67,7 +32,11 @@ abstract class $SignUpStateCopyWith<$Res> {
           SignUpState value, $Res Function(SignUpState) then) =
       _$SignUpStateCopyWithImpl<$Res, SignUpState>;
   @useResult
-  $Res call({bool isLoading, bool isValid, String? errorMessage});
+  $Res call(
+      {bool isLoading,
+      bool isValid,
+      String? errorMessage,
+      String? succesMessge});
 }
 
 /// @nodoc
@@ -86,6 +55,7 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
     Object? isLoading = null,
     Object? isValid = null,
     Object? errorMessage = freezed,
+    Object? succesMessge = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -100,6 +70,10 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      succesMessge: freezed == succesMessge
+          ? _value.succesMessge
+          : succesMessge // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -112,7 +86,11 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, bool isValid, String? errorMessage});
+  $Res call(
+      {bool isLoading,
+      bool isValid,
+      String? errorMessage,
+      String? succesMessge});
 }
 
 /// @nodoc
@@ -129,6 +107,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? isValid = null,
     Object? errorMessage = freezed,
+    Object? succesMessge = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
@@ -143,6 +122,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      succesMessge: freezed == succesMessge
+          ? _value.succesMessge
+          : succesMessge // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -151,7 +134,10 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 class _$InitialImpl extends Initial {
   const _$InitialImpl(
-      {this.isLoading = false, this.isValid = false, this.errorMessage})
+      {this.isLoading = false,
+      this.isValid = false,
+      this.errorMessage,
+      this.succesMessge})
       : super._();
 
   @override
@@ -162,10 +148,12 @@ class _$InitialImpl extends Initial {
   final bool isValid;
   @override
   final String? errorMessage;
+  @override
+  final String? succesMessge;
 
   @override
   String toString() {
-    return 'SignUpState.initial(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage)';
+    return 'SignUpState(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage, succesMessge: $succesMessge)';
   }
 
   @override
@@ -177,85 +165,28 @@ class _$InitialImpl extends Initial {
                 other.isLoading == isLoading) &&
             (identical(other.isValid, isValid) || other.isValid == isValid) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.succesMessge, succesMessge) ||
+                other.succesMessge == succesMessge));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isLoading, isValid, errorMessage);
+      Object.hash(runtimeType, isLoading, isValid, errorMessage, succesMessge);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            bool isLoading, bool isValid, String? errorMessage)
-        initial,
-  }) {
-    return initial(isLoading, isValid, errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoading, bool isValid, String? errorMessage)?
-        initial,
-  }) {
-    return initial?.call(isLoading, isValid, errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoading, bool isValid, String? errorMessage)?
-        initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(isLoading, isValid, errorMessage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class Initial extends SignUpState {
   const factory Initial(
       {final bool isLoading,
       final bool isValid,
-      final String? errorMessage}) = _$InitialImpl;
+      final String? errorMessage,
+      final String? succesMessge}) = _$InitialImpl;
   const Initial._() : super._();
 
   @override
@@ -264,6 +195,8 @@ abstract class Initial extends SignUpState {
   bool get isValid;
   @override
   String? get errorMessage;
+  @override
+  String? get succesMessge;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

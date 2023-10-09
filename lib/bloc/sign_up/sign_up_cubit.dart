@@ -11,16 +11,21 @@ class SignUpCubit extends Cubit<SignUpState> {
   Future<void> signUp(String email, String password, String numberPhone,
       String name, String rePassword) async {
     if (password != rePassword) {
+      emit(state.copyWith(errorMessage: "Kata sandi tidak cocok!"));
       return;
     }
-    emit(state.copyWith(isLoading: true));
+    // Setelah pendaftaran berhasil, Anda dapat mengatur successMessage di sini
+    emit(state.copyWith(
+        isLoading: false, isValid: true, succesMessge: 'Pendaftaran Berhasil'));
 
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
     } catch (e) {
-      emit(state.copyWith(errorMessage: "Terjadi kesalahan!"));
+      emit(state.copyWith(
+          errorMessage: "Terjadi kesalahan!",
+          isLoading: false,
+          succesMessge: null));
     }
-    emit(state.copyWith(isLoading: false));
   }
 }

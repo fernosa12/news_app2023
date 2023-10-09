@@ -4,9 +4,9 @@ part of 'sign_up_cubit.dart';
 class SignUpState with _$SignUpState {
   const SignUpState._();
 
-  const factory SignUpState({
-    @Default(false) bool isLoading,
-    @Default(false) bool isValid,
-    String? errorMessage,
-  }) = Initial;
+  const factory SignUpState(
+      {@Default(false) bool isLoading,
+      @Default(false) bool isValid,
+      String? errorMessage,
+      String? succesMessge}) = Initial;
 }

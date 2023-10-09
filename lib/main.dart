@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
+import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
 import 'package:news_app/firebase_options.dart';
 import 'package:news_app/pagination/view/login_view.dart';
 
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => LoginCubit(),
         ),
+        BlocProvider(
+          create: (context) => SignUpCubit(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
