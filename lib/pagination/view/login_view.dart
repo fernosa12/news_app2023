@@ -4,91 +4,103 @@ import 'package:news_app/bloc/login/login_cubit.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+  LoginView({Key? key}) : super(key: key);
+
+  final TextEditingController emailController =
+      TextEditingController(text: 'admin@gmail.com');
+  final TextEditingController passwordController =
+      TextEditingController(text: '123456');
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              margin: const EdgeInsets.only(),
-              child: TextFormField(
-                initialValue: 'admin@gmail.com',
-                maxLength: 20,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  labelStyle: TextStyle(
-                    color: Colors.blueGrey,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.email,
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blueGrey,
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: Scaffold(
+        body: BlocConsumer<LoginCubit, LoginState>(
+          listener: (context, state) {
+            if (state.errorMessage != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.errorMessage!)),
+              );
+            } else if (state.successMessage != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.successMessage!)),
+              );
+            }
+          },
+          builder: (context, state) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    child: TextFormField(
+                      controller: emailController,
+                      maxLength: 20,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        labelStyle: TextStyle(
+                          color: Colors.blueGrey,
+                        ),
+                        suffixIcon: Icon(
+                          Icons.email,
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        helperText: 'Enter your email address',
+                      ),
                     ),
                   ),
-                  helperText: 'Enter your email address',
-                ),
-                onChanged: (value) {},
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(12),
-              margin: const EdgeInsets.only(),
-              child: TextFormField(
-                initialValue: '123456',
-                maxLength: 20,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(
-                    color: Colors.blueGrey,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.password,
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blueGrey,
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    child: TextFormField(
+                      controller: passwordController,
+                      maxLength: 20,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(
+                          color: Colors.blueGrey,
+                        ),
+                        suffixIcon: Icon(
+                          Icons.password,
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        helperText: 'Enter your password',
+                      ),
                     ),
                   ),
-                  helperText: 'Enter your password',
-                ),
-                onChanged: (value) {},
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
-              ),
-              onPressed: () {},
-              child: const Text("Login"),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text("SIGN UP"),
-            ),
-            BlocProvider(
-              create: (context) => LoginCubit(),
-              child: BlocConsumer<LoginCubit, LoginState>(
-                listener: (context, state) {
-                  // TODO: implement listener
-                },
-                builder: (context, state) {
-                  return state.isLoading
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueGrey,
+                    ),
+                    onPressed: () {
+                      context.read<LoginCubit>().loginCredential(
+                          emailController.text, passwordController.text);
+                    },
+                    child: const Text("Login"),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("SIGN UP"),
+                  ),
+                  state.isLoading
                       ? const CircularProgressIndicator()
                       : SignInButton(Buttons.google,
                           onPressed: () =>
-                              context.read<LoginCubit>().googleSign());
-                },
+                              context.read<LoginCubit>().googleSign()),
+                ],
               ),
-            )
-          ],
+            );
+          },
         ),
       ),
     );

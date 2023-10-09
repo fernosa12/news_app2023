@@ -43,33 +43,43 @@ class _RegisterViewState extends State<RegisterView> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  TextField(
-                    controller: emailController,
-                    decoration: const InputDecoration(labelText: 'Email'),
+                  Expanded(
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(labelText: 'Email'),
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  TextField(
-                    controller: passwordController,
-                    decoration: const InputDecoration(labelText: 'Password'),
-                    obscureText: true,
+                  Expanded(
+                    child: TextField(
+                      controller: passwordController,
+                      decoration: const InputDecoration(labelText: 'Password'),
+                      obscureText: true,
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  TextField(
-                    controller: rePasswordController,
-                    decoration:
-                        const InputDecoration(labelText: 'Confirm Password'),
-                    obscureText: true,
+                  Expanded(
+                    child: TextField(
+                      controller: rePasswordController,
+                      decoration:
+                          const InputDecoration(labelText: 'Confirm Password'),
+                      obscureText: true,
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  TextField(
-                    controller: phoneController,
-                    decoration:
-                        const InputDecoration(labelText: 'Phone Number'),
+                  Expanded(
+                    child: TextField(
+                      controller: phoneController,
+                      decoration:
+                          const InputDecoration(labelText: 'Phone Number'),
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  TextField(
-                    controller: nameController,
-                    decoration: const InputDecoration(labelText: 'Name'),
+                  Expanded(
+                    child: TextField(
+                      controller: nameController,
+                      decoration: const InputDecoration(labelText: 'Name'),
+                    ),
                   ),
                   const SizedBox(height: 24),
                   state.isLoading

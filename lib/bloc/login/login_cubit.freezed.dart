@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+  String? get successMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -29,7 +31,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, String? errorMessage, String? successMessage});
 }
 
 /// @nodoc
@@ -46,12 +48,22 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? errorMessage = freezed,
+    Object? successMessage = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      successMessage: freezed == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -64,7 +76,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, String? errorMessage, String? successMessage});
 }
 
 /// @nodoc
@@ -79,12 +91,22 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? errorMessage = freezed,
+    Object? successMessage = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      successMessage: freezed == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -92,15 +114,20 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements Initial {
-  const _$InitialImpl({this.isLoading = false});
+  const _$InitialImpl(
+      {this.isLoading = false, this.errorMessage, this.successMessage});
 
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  final String? errorMessage;
+  @override
+  final String? successMessage;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading)';
+    return 'LoginState(isLoading: $isLoading, errorMessage: $errorMessage, successMessage: $successMessage)';
   }
 
   @override
@@ -109,11 +136,16 @@ class _$InitialImpl implements Initial {
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.successMessage, successMessage) ||
+                other.successMessage == successMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, errorMessage, successMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -123,10 +155,17 @@ class _$InitialImpl implements Initial {
 }
 
 abstract class Initial implements LoginState {
-  const factory Initial({final bool isLoading}) = _$InitialImpl;
+  const factory Initial(
+      {final bool isLoading,
+      final String? errorMessage,
+      final String? successMessage}) = _$InitialImpl;
 
   @override
   bool get isLoading;
+  @override
+  String? get errorMessage;
+  @override
+  String? get successMessage;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

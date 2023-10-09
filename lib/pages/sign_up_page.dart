@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/bloc/login/login_cubit.dart';
-import 'package:news_app/pagination/view/login_view.dart';
+import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
+import 'package:news_app/pagination/view/register_view.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -12,8 +12,8 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey[100],
       body: BlocProvider(
-        create: (_) => LoginCubit(),
-        child: LoginView(),
+        create: (_) => SignUpCubit(),
+        child: const RegisterView(),
       ),
     );
   }
