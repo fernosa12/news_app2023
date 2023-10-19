@@ -6,5 +6,6 @@ class LoginState with _$LoginState {
     @Default(false) bool isLoading,
     String? errorMessage,
     String? successMessage,
+    @Default(false) bool isAuthenticated,
   }) = Initial;
 }

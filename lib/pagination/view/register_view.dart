@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
+import 'package:news_app/pagination/view/login_view.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -35,6 +36,9 @@ class _RegisterViewState extends State<RegisterView> {
             } else if (state.succesMessge != null) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.succesMessge!)),
+              );
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => LoginView()),
               );
             }
           },

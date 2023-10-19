@@ -42,7 +42,10 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      emit(state.copyWith(isLoading: false, successMessage: "Login berhasil!"));
+      emit(state.copyWith(
+          isLoading: false,
+          isAuthenticated: true,
+          successMessage: "Login berhasil!"));
     } catch (e) {
       emit(state.copyWith(
           isLoading: false, errorMessage: "Terjadi kesalahan saat login!"));
@@ -51,5 +54,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+    emit(state.copyWith(
+        isAuthenticated: false, successMessage: "Berhasil keluar!"));
   }
 }

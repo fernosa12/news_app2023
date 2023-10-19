@@ -14,12 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+NewsHomePage _$NewsHomePageFromJson(Map<String, dynamic> json) {
+  return _NewsHomePage.fromJson(json);
+}
+
 /// @nodoc
 mixin _$NewsHomePage {
   String get status => throw _privateConstructorUsedError;
   int get totalResults => throw _privateConstructorUsedError;
   List<Article> get articles => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NewsHomePageCopyWith<NewsHomePage> get copyWith =>
       throw _privateConstructorUsedError;
@@ -112,13 +117,16 @@ class __$$NewsHomePageImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$NewsHomePageImpl implements _NewsHomePage {
   const _$NewsHomePageImpl(
       {required this.status,
       required this.totalResults,
       required final List<Article> articles})
       : _articles = articles;
+
+  factory _$NewsHomePageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NewsHomePageImplFromJson(json);
 
   @override
   final String status;
@@ -148,6 +156,7 @@ class _$NewsHomePageImpl implements _NewsHomePage {
             const DeepCollectionEquality().equals(other._articles, _articles));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, status, totalResults,
       const DeepCollectionEquality().hash(_articles));
@@ -157,6 +166,13 @@ class _$NewsHomePageImpl implements _NewsHomePage {
   @pragma('vm:prefer-inline')
   _$$NewsHomePageImplCopyWith<_$NewsHomePageImpl> get copyWith =>
       __$$NewsHomePageImplCopyWithImpl<_$NewsHomePageImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$NewsHomePageImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _NewsHomePage implements NewsHomePage {
@@ -164,6 +180,9 @@ abstract class _NewsHomePage implements NewsHomePage {
       {required final String status,
       required final int totalResults,
       required final List<Article> articles}) = _$NewsHomePageImpl;
+
+  factory _NewsHomePage.fromJson(Map<String, dynamic> json) =
+      _$NewsHomePageImpl.fromJson;
 
   @override
   String get status;
@@ -177,6 +196,10 @@ abstract class _NewsHomePage implements NewsHomePage {
       throw _privateConstructorUsedError;
 }
 
+Article _$ArticleFromJson(Map<String, dynamic> json) {
+  return _Article.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Article {
   Source get source => throw _privateConstructorUsedError;
@@ -188,6 +211,7 @@ mixin _$Article {
   DateTime get publishedAt => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
 }
@@ -356,7 +380,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$ArticleImpl implements _Article {
   const _$ArticleImpl(
       {required this.source,
@@ -367,6 +391,9 @@ class _$ArticleImpl implements _Article {
       required this.urlToImage,
       required this.publishedAt,
       required this.content});
+
+  factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ArticleImplFromJson(json);
 
   @override
   final Source source;
@@ -408,6 +435,7 @@ class _$ArticleImpl implements _Article {
             (identical(other.content, content) || other.content == content));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, source, author, title,
       description, url, urlToImage, publishedAt, content);
@@ -417,6 +445,13 @@ class _$ArticleImpl implements _Article {
   @pragma('vm:prefer-inline')
   _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
       __$$ArticleImplCopyWithImpl<_$ArticleImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ArticleImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Article implements Article {
@@ -429,6 +464,8 @@ abstract class _Article implements Article {
       required final String urlToImage,
       required final DateTime publishedAt,
       required final String content}) = _$ArticleImpl;
+
+  factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
   Source get source;
@@ -452,11 +489,16 @@ abstract class _Article implements Article {
       throw _privateConstructorUsedError;
 }
 
+Source _$SourceFromJson(Map<String, dynamic> json) {
+  return _Source.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Source {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SourceCopyWith<Source> get copyWith => throw _privateConstructorUsedError;
 }
@@ -536,9 +578,12 @@ class __$$SourceImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SourceImpl implements _Source {
   const _$SourceImpl({required this.id, required this.name});
+
+  factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SourceImplFromJson(json);
 
   @override
   final String id;
@@ -559,6 +604,7 @@ class _$SourceImpl implements _Source {
             (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name);
 
@@ -567,11 +613,20 @@ class _$SourceImpl implements _Source {
   @pragma('vm:prefer-inline')
   _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>
       __$$SourceImplCopyWithImpl<_$SourceImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SourceImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Source implements Source {
   const factory _Source(
       {required final String id, required final String name}) = _$SourceImpl;
+
+  factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 
   @override
   String get id;
