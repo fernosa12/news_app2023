@@ -5,6 +5,7 @@ import 'package:news_app/bloc/login/login_cubit.dart';
 import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
 import 'package:news_app/firebase_options.dart';
+import 'package:news_app/pagination/view/home_view.dart';
 import 'package:news_app/pagination/view/login_view.dart';
 
 void main() async {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
           create: (context) => SignUpCubit(),
         ),
         BlocProvider(
-          create: (context) => NewsHomePageCubit(),
+          create: (context) => NewsHomePageCubit()..getNews(),
+          child: HomePageBody(),
         ),
       ],
       child: MaterialApp(

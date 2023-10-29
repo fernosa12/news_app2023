@@ -13,30 +13,27 @@ class NewsHomePageCubit extends Cubit<NewsHomePageState> {
     emit(state.copyWith(isLoading: true));
 
     final dio = Dio();
-    final url =
+    const url =
         'https://newsapi.org/v2/everything?q=tesla&from=2023-09-19&sortBy=publishedAt&apiKey=8dace79601b34beebd192a626f0a772e';
 
     try {
-      // Melakukan request ke API
       final response = await dio.get(url);
 
-      // Jika berhasil
       if (response.statusCode == 200) {
-        // Decode JSON response ke dalam Dart object dengan model yang telah didefinisikan
+        print('Response data: ${response.data}');
         final newsHomePage = NewsHomePage.fromJson(response.data);
-        // Emit state yang baru dengan data yang telah dimuat
+
         emit(state.copyWith(isLoading: false, newsHomePage: newsHomePage));
       } else {
-        // Jika response tidak sukses, emit error state
         emit(state.copyWith(
             isLoading: false,
             errorMessage:
                 "Failed to load news, status code: ${response.statusCode}"));
       }
     } catch (e) {
-      // Jika terjadi exception saat melakukan request, emit error state
       emit(state.copyWith(
-          isLoading: false, errorMessage: "Failed to load news: $e"));
+          isLoading: false,
+          errorMessage: "Failed to load news: ${e.toString()}"));
     }
   }
 }

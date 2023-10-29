@@ -20,9 +20,9 @@ NewsHomePage _$NewsHomePageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewsHomePage {
-  String get status => throw _privateConstructorUsedError;
-  int get totalResults => throw _privateConstructorUsedError;
-  List<Article> get articles => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
+  int? get totalResults => throw _privateConstructorUsedError;
+  List<Article>? get articles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $NewsHomePageCopyWith<$Res> {
           NewsHomePage value, $Res Function(NewsHomePage) then) =
       _$NewsHomePageCopyWithImpl<$Res, NewsHomePage>;
   @useResult
-  $Res call({String status, int totalResults, List<Article> articles});
+  $Res call({String? status, int? totalResults, List<Article>? articles});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$NewsHomePageCopyWithImpl<$Res, $Val extends NewsHomePage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? totalResults = null,
-    Object? articles = null,
+    Object? status = freezed,
+    Object? totalResults = freezed,
+    Object? articles = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalResults: null == totalResults
+              as String?,
+      totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int,
-      articles: null == articles
+              as int?,
+      articles: freezed == articles
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
-              as List<Article>,
+              as List<Article>?,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$NewsHomePageImplCopyWith<$Res>
       __$$NewsHomePageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String status, int totalResults, List<Article> articles});
+  $Res call({String? status, int? totalResults, List<Article>? articles});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$NewsHomePageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? totalResults = null,
-    Object? articles = null,
+    Object? status = freezed,
+    Object? totalResults = freezed,
+    Object? articles = freezed,
   }) {
     return _then(_$NewsHomePageImpl(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      totalResults: null == totalResults
+              as String?,
+      totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
-              as int,
-      articles: null == articles
+              as int?,
+      articles: freezed == articles
           ? _value._articles
           : articles // ignore: cast_nullable_to_non_nullable
-              as List<Article>,
+              as List<Article>?,
     ));
   }
 }
@@ -122,22 +122,24 @@ class _$NewsHomePageImpl implements _NewsHomePage {
   const _$NewsHomePageImpl(
       {required this.status,
       required this.totalResults,
-      required final List<Article> articles})
+      required final List<Article>? articles})
       : _articles = articles;
 
   factory _$NewsHomePageImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewsHomePageImplFromJson(json);
 
   @override
-  final String status;
+  final String? status;
   @override
-  final int totalResults;
-  final List<Article> _articles;
+  final int? totalResults;
+  final List<Article>? _articles;
   @override
-  List<Article> get articles {
+  List<Article>? get articles {
+    final value = _articles;
+    if (value == null) return null;
     if (_articles is EqualUnmodifiableListView) return _articles;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_articles);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -177,19 +179,19 @@ class _$NewsHomePageImpl implements _NewsHomePage {
 
 abstract class _NewsHomePage implements NewsHomePage {
   const factory _NewsHomePage(
-      {required final String status,
-      required final int totalResults,
-      required final List<Article> articles}) = _$NewsHomePageImpl;
+      {required final String? status,
+      required final int? totalResults,
+      required final List<Article>? articles}) = _$NewsHomePageImpl;
 
   factory _NewsHomePage.fromJson(Map<String, dynamic> json) =
       _$NewsHomePageImpl.fromJson;
 
   @override
-  String get status;
+  String? get status;
   @override
-  int get totalResults;
+  int? get totalResults;
   @override
-  List<Article> get articles;
+  List<Article>? get articles;
   @override
   @JsonKey(ignore: true)
   _$$NewsHomePageImplCopyWith<_$NewsHomePageImpl> get copyWith =>
@@ -202,14 +204,14 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
-  Source get source => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  String get urlToImage => throw _privateConstructorUsedError;
-  DateTime get publishedAt => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
+  Source? get source => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
+  DateTime? get publishedAt => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -222,16 +224,16 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content});
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content});
 
-  $SourceCopyWith<$Res> get source;
+  $SourceCopyWith<$Res>? get source;
 }
 
 /// @nodoc
@@ -247,55 +249,59 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = null,
-    Object? author = null,
-    Object? title = null,
-    Object? description = null,
-    Object? url = null,
-    Object? urlToImage = null,
-    Object? publishedAt = null,
-    Object? content = null,
+    Object? source = freezed,
+    Object? author = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? urlToImage = freezed,
+    Object? publishedAt = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      source: null == source
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as Source,
-      author: null == author
+              as Source?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      urlToImage: null == urlToImage
+              as String?,
+      urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedAt: null == publishedAt
+              as String?,
+      publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      content: null == content
+              as DateTime?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SourceCopyWith<$Res> get source {
-    return $SourceCopyWith<$Res>(_value.source, (value) {
+  $SourceCopyWith<$Res>? get source {
+    if (_value.source == null) {
+      return null;
+    }
+
+    return $SourceCopyWith<$Res>(_value.source!, (value) {
       return _then(_value.copyWith(source: value) as $Val);
     });
   }
@@ -309,17 +315,17 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content});
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content});
 
   @override
-  $SourceCopyWith<$Res> get source;
+  $SourceCopyWith<$Res>? get source;
 }
 
 /// @nodoc
@@ -333,48 +339,48 @@ class __$$ArticleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = null,
-    Object? author = null,
-    Object? title = null,
-    Object? description = null,
-    Object? url = null,
-    Object? urlToImage = null,
-    Object? publishedAt = null,
-    Object? content = null,
+    Object? source = freezed,
+    Object? author = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? urlToImage = freezed,
+    Object? publishedAt = freezed,
+    Object? content = freezed,
   }) {
     return _then(_$ArticleImpl(
-      source: null == source
+      source: freezed == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
-              as Source,
-      author: null == author
+              as Source?,
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      urlToImage: null == urlToImage
+              as String?,
+      urlToImage: freezed == urlToImage
           ? _value.urlToImage
           : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedAt: null == publishedAt
+              as String?,
+      publishedAt: freezed == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      content: null == content
+              as DateTime?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -396,21 +402,21 @@ class _$ArticleImpl implements _Article {
       _$$ArticleImplFromJson(json);
 
   @override
-  final Source source;
+  final Source? source;
   @override
-  final String author;
+  final String? author;
   @override
-  final String title;
+  final String? title;
   @override
-  final String description;
+  final String? description;
   @override
-  final String url;
+  final String? url;
   @override
-  final String urlToImage;
+  final String? urlToImage;
   @override
-  final DateTime publishedAt;
+  final DateTime? publishedAt;
   @override
-  final String content;
+  final String? content;
 
   @override
   String toString() {
@@ -456,33 +462,33 @@ class _$ArticleImpl implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {required final Source source,
-      required final String author,
-      required final String title,
-      required final String description,
-      required final String url,
-      required final String urlToImage,
-      required final DateTime publishedAt,
-      required final String content}) = _$ArticleImpl;
+      {required final Source? source,
+      required final String? author,
+      required final String? title,
+      required final String? description,
+      required final String? url,
+      required final String? urlToImage,
+      required final DateTime? publishedAt,
+      required final String? content}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
-  Source get source;
+  Source? get source;
   @override
-  String get author;
+  String? get author;
   @override
-  String get title;
+  String? get title;
   @override
-  String get description;
+  String? get description;
   @override
-  String get url;
+  String? get url;
   @override
-  String get urlToImage;
+  String? get urlToImage;
   @override
-  DateTime get publishedAt;
+  DateTime? get publishedAt;
   @override
-  String get content;
+  String? get content;
   @override
   @JsonKey(ignore: true)
   _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
@@ -495,8 +501,8 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Source {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -508,7 +514,7 @@ abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res, Source>;
   @useResult
-  $Res call({String id, String name});
+  $Res call({String? id, String? name});
 }
 
 /// @nodoc
@@ -524,18 +530,18 @@ class _$SourceCopyWithImpl<$Res, $Val extends Source>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -547,7 +553,7 @@ abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
       __$$SourceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name});
+  $Res call({String? id, String? name});
 }
 
 /// @nodoc
@@ -561,18 +567,18 @@ class __$$SourceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$SourceImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -586,9 +592,9 @@ class _$SourceImpl implements _Source {
       _$$SourceImplFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String name;
+  final String? name;
 
   @override
   String toString() {
@@ -624,14 +630,14 @@ class _$SourceImpl implements _Source {
 
 abstract class _Source implements Source {
   const factory _Source(
-      {required final String id, required final String name}) = _$SourceImpl;
+      {required final String? id, required final String? name}) = _$SourceImpl;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get name;
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>

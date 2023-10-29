@@ -1,42 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart'; // pastikan import yang benar
+import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart';
+import 'package:news_app/models/response/response_news_model.dart'; // Ganti dengan path yang benar ke model Anda
 
 class HomePageBody extends StatelessWidget {
-  const HomePageBody({Key? key}) : super(key: key);
+  const HomePageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Memanggil getNews ketika widget ini dibuat
-    context.read<NewsHomePageCubit>().getNews();
-
-    return BlocBuilder<NewsHomePageCubit, NewsHomePageState>(
+    return BlocConsumer<NewsHomePageCubit, NewsHomePageState>(
+      listener: (context, state) {
+        // Handle potential states, like error showing, etc.
+      },
       builder: (context, state) {
-        // Cek jika dalam keadaan loading
         if (state.isLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state.errorMessage != null) {
-          // Ada error, tampilkan pesan error
           return Center(child: Text(state.errorMessage!));
         } else if (state.newsHomePage != null) {
-          // Data berhasil dimuat, tampilkan data
-          final articles = state.newsHomePage!.articles;
           return ListView.builder(
-              itemCount: articles.length,
-              itemBuilder: (context, index) {
-                final article = articles[index];
-                return ListTile(
-                  leading: article.urlToImage != null
-                      ? Image.network(article.urlToImage)
-                      : null,
-                  title: Text(article.title),
-                  subtitle: Text(article.description),
-                );
-              });
-        } else {
-          // State yang tidak dikenal, bisa menambahkan penanganan lain jika dibutuhkan
-          return const Center(child: Text("Unknown state"));
+            itemCount: state.newsHomePage?.articles?.length ?? 0,
+            itemBuilder: (context, index) {
+              final Article? article = state.newsHomePage?.articles?[index];
+              return ListTile(
+                title: Text(article?.title ?? 'Default Title'),
+                subtitle: Text(article?.description ?? "Default Description"),
+                leading: article?.urlToImage == null
+                    ? null
+                    : Image.network(article?.urlToImage ?? ""),
+              );
+            },
+          );
         }
+        return const SizedBox.shrink(); // For other unknown states
       },
     );
   }
