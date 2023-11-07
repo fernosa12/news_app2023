@@ -152,9 +152,11 @@ class HomePageBody extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: Icon(Icons.trending_up),
+            label: 'Trending',
           ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark), label: 'Bookmark'),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
