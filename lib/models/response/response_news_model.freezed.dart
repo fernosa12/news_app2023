@@ -20,9 +20,9 @@ NewsHomePage _$NewsHomePageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewsHomePage {
-  String? get status => throw _privateConstructorUsedError;
-  int? get totalResults => throw _privateConstructorUsedError;
-  List<Article>? get articles => throw _privateConstructorUsedError;
+  bool? get success => throw _privateConstructorUsedError;
+  dynamic get messege => throw _privateConstructorUsedError;
+  Data? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,9 @@ abstract class $NewsHomePageCopyWith<$Res> {
           NewsHomePage value, $Res Function(NewsHomePage) then) =
       _$NewsHomePageCopyWithImpl<$Res, NewsHomePage>;
   @useResult
-  $Res call({String? status, int? totalResults, List<Article>? articles});
+  $Res call({bool? success, dynamic messege, Data? data});
+
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -52,24 +54,36 @@ class _$NewsHomePageCopyWithImpl<$Res, $Val extends NewsHomePage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? success = freezed,
+    Object? messege = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      totalResults: freezed == totalResults
-          ? _value.totalResults
-          : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
-      articles: freezed == articles
-          ? _value.articles
-          : articles // ignore: cast_nullable_to_non_nullable
-              as List<Article>?,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      messege: freezed == messege
+          ? _value.messege
+          : messege // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Data?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DataCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -81,7 +95,10 @@ abstract class _$$NewsHomePageImplCopyWith<$Res>
       __$$NewsHomePageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? status, int? totalResults, List<Article>? articles});
+  $Res call({bool? success, dynamic messege, Data? data});
+
+  @override
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -95,23 +112,23 @@ class __$$NewsHomePageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? success = freezed,
+    Object? messege = freezed,
+    Object? data = freezed,
   }) {
     return _then(_$NewsHomePageImpl(
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      totalResults: freezed == totalResults
-          ? _value.totalResults
-          : totalResults // ignore: cast_nullable_to_non_nullable
-              as int?,
-      articles: freezed == articles
-          ? _value._articles
-          : articles // ignore: cast_nullable_to_non_nullable
-              as List<Article>?,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      messege: freezed == messege
+          ? _value.messege
+          : messege // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Data?,
     ));
   }
 }
@@ -120,31 +137,21 @@ class __$$NewsHomePageImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NewsHomePageImpl implements _NewsHomePage {
   const _$NewsHomePageImpl(
-      {required this.status,
-      required this.totalResults,
-      required final List<Article>? articles})
-      : _articles = articles;
+      {required this.success, required this.messege, required this.data});
 
   factory _$NewsHomePageImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewsHomePageImplFromJson(json);
 
   @override
-  final String? status;
+  final bool? success;
   @override
-  final int? totalResults;
-  final List<Article>? _articles;
+  final dynamic messege;
   @override
-  List<Article>? get articles {
-    final value = _articles;
-    if (value == null) return null;
-    if (_articles is EqualUnmodifiableListView) return _articles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final Data? data;
 
   @override
   String toString() {
-    return 'NewsHomePage(status: $status, totalResults: $totalResults, articles: $articles)';
+    return 'NewsHomePage(success: $success, messege: $messege, data: $data)';
   }
 
   @override
@@ -152,16 +159,15 @@ class _$NewsHomePageImpl implements _NewsHomePage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NewsHomePageImpl &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.totalResults, totalResults) ||
-                other.totalResults == totalResults) &&
-            const DeepCollectionEquality().equals(other._articles, _articles));
+            (identical(other.success, success) || other.success == success) &&
+            const DeepCollectionEquality().equals(other.messege, messege) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, status, totalResults,
-      const DeepCollectionEquality().hash(_articles));
+  int get hashCode => Object.hash(
+      runtimeType, success, const DeepCollectionEquality().hash(messege), data);
 
   @JsonKey(ignore: true)
   @override
@@ -179,67 +185,59 @@ class _$NewsHomePageImpl implements _NewsHomePage {
 
 abstract class _NewsHomePage implements NewsHomePage {
   const factory _NewsHomePage(
-      {required final String? status,
-      required final int? totalResults,
-      required final List<Article>? articles}) = _$NewsHomePageImpl;
+      {required final bool? success,
+      required final dynamic messege,
+      required final Data? data}) = _$NewsHomePageImpl;
 
   factory _NewsHomePage.fromJson(Map<String, dynamic> json) =
       _$NewsHomePageImpl.fromJson;
 
   @override
-  String? get status;
+  bool? get success;
   @override
-  int? get totalResults;
+  dynamic get messege;
   @override
-  List<Article>? get articles;
+  Data? get data;
   @override
   @JsonKey(ignore: true)
   _$$NewsHomePageImplCopyWith<_$NewsHomePageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Article _$ArticleFromJson(Map<String, dynamic> json) {
-  return _Article.fromJson(json);
+Data _$DataFromJson(Map<String, dynamic> json) {
+  return _Data.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Article {
-  Source? get source => throw _privateConstructorUsedError;
-  String? get author => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+mixin _$Data {
+  String? get link => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get url => throw _privateConstructorUsedError;
-  String? get urlToImage => throw _privateConstructorUsedError;
-  DateTime? get publishedAt => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  List<Post>? get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
+  $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ArticleCopyWith<$Res> {
-  factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
-      _$ArticleCopyWithImpl<$Res, Article>;
+abstract class $DataCopyWith<$Res> {
+  factory $DataCopyWith(Data value, $Res Function(Data) then) =
+      _$DataCopyWithImpl<$Res, Data>;
   @useResult
   $Res call(
-      {Source? source,
-      String? author,
-      String? title,
+      {String? link,
+      String? image,
       String? description,
-      String? url,
-      String? urlToImage,
-      DateTime? publishedAt,
-      String? content});
-
-  $SourceCopyWith<$Res>? get source;
+      String? title,
+      List<Post>? posts});
 }
 
 /// @nodoc
-class _$ArticleCopyWithImpl<$Res, $Val extends Article>
-    implements $ArticleCopyWith<$Res> {
-  _$ArticleCopyWithImpl(this._value, this._then);
+class _$DataCopyWithImpl<$Res, $Val extends Data>
+    implements $DataCopyWith<$Res> {
+  _$DataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -249,278 +247,222 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? author = freezed,
-    Object? title = freezed,
+    Object? link = freezed,
+    Object? image = freezed,
     Object? description = freezed,
-    Object? url = freezed,
-    Object? urlToImage = freezed,
-    Object? publishedAt = freezed,
-    Object? content = freezed,
+    Object? title = freezed,
+    Object? posts = freezed,
   }) {
     return _then(_value.copyWith(
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as Source?,
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      urlToImage: freezed == urlToImage
-          ? _value.urlToImage
-          : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      publishedAt: freezed == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      content: freezed == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+      posts: freezed == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SourceCopyWith<$Res>? get source {
-    if (_value.source == null) {
-      return null;
-    }
-
-    return $SourceCopyWith<$Res>(_value.source!, (value) {
-      return _then(_value.copyWith(source: value) as $Val);
-    });
   }
 }
 
 /// @nodoc
-abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
-  factory _$$ArticleImplCopyWith(
-          _$ArticleImpl value, $Res Function(_$ArticleImpl) then) =
-      __$$ArticleImplCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {Source? source,
-      String? author,
-      String? title,
+      {String? link,
+      String? image,
       String? description,
-      String? url,
-      String? urlToImage,
-      DateTime? publishedAt,
-      String? content});
-
-  @override
-  $SourceCopyWith<$Res>? get source;
+      String? title,
+      List<Post>? posts});
 }
 
 /// @nodoc
-class __$$ArticleImplCopyWithImpl<$Res>
-    extends _$ArticleCopyWithImpl<$Res, _$ArticleImpl>
-    implements _$$ArticleImplCopyWith<$Res> {
-  __$$ArticleImplCopyWithImpl(
-      _$ArticleImpl _value, $Res Function(_$ArticleImpl) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$DataCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = freezed,
-    Object? author = freezed,
-    Object? title = freezed,
+    Object? link = freezed,
+    Object? image = freezed,
     Object? description = freezed,
-    Object? url = freezed,
-    Object? urlToImage = freezed,
-    Object? publishedAt = freezed,
-    Object? content = freezed,
+    Object? title = freezed,
+    Object? posts = freezed,
   }) {
-    return _then(_$ArticleImpl(
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as Source?,
-      author: freezed == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+    return _then(_$DataImpl(
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      urlToImage: freezed == urlToImage
-          ? _value.urlToImage
-          : urlToImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      publishedAt: freezed == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      content: freezed == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+      posts: freezed == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ArticleImpl implements _Article {
-  const _$ArticleImpl(
-      {required this.source,
-      required this.author,
-      required this.title,
+class _$DataImpl implements _Data {
+  const _$DataImpl(
+      {required this.link,
+      required this.image,
       required this.description,
-      required this.url,
-      required this.urlToImage,
-      required this.publishedAt,
-      required this.content});
+      required this.title,
+      required final List<Post>? posts})
+      : _posts = posts;
 
-  factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ArticleImplFromJson(json);
+  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataImplFromJson(json);
 
   @override
-  final Source? source;
+  final String? link;
   @override
-  final String? author;
-  @override
-  final String? title;
+  final String? image;
   @override
   final String? description;
   @override
-  final String? url;
+  final String? title;
+  final List<Post>? _posts;
   @override
-  final String? urlToImage;
-  @override
-  final DateTime? publishedAt;
-  @override
-  final String? content;
+  List<Post>? get posts {
+    final value = _posts;
+    if (value == null) return null;
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Article(source: $source, author: $author, title: $title, description: $description, url: $url, urlToImage: $urlToImage, publishedAt: $publishedAt, content: $content)';
+    return 'Data(link: $link, image: $image, description: $description, title: $title, posts: $posts)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ArticleImpl &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.title, title) || other.title == title) &&
+            other is _$DataImpl &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.image, image) || other.image == image) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.urlToImage, urlToImage) ||
-                other.urlToImage == urlToImage) &&
-            (identical(other.publishedAt, publishedAt) ||
-                other.publishedAt == publishedAt) &&
-            (identical(other.content, content) || other.content == content));
+            (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, source, author, title,
-      description, url, urlToImage, publishedAt, content);
+  int get hashCode => Object.hash(runtimeType, link, image, description, title,
+      const DeepCollectionEquality().hash(_posts));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
-      __$$ArticleImplCopyWithImpl<_$ArticleImpl>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ArticleImplToJson(
+    return _$$DataImplToJson(
       this,
     );
   }
 }
 
-abstract class _Article implements Article {
-  const factory _Article(
-      {required final Source? source,
-      required final String? author,
-      required final String? title,
+abstract class _Data implements Data {
+  const factory _Data(
+      {required final String? link,
+      required final String? image,
       required final String? description,
-      required final String? url,
-      required final String? urlToImage,
-      required final DateTime? publishedAt,
-      required final String? content}) = _$ArticleImpl;
+      required final String? title,
+      required final List<Post>? posts}) = _$DataImpl;
 
-  factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
-  Source? get source;
+  String? get link;
   @override
-  String? get author;
-  @override
-  String? get title;
+  String? get image;
   @override
   String? get description;
   @override
-  String? get url;
+  String? get title;
   @override
-  String? get urlToImage;
-  @override
-  DateTime? get publishedAt;
-  @override
-  String? get content;
+  List<Post>? get posts;
   @override
   @JsonKey(ignore: true)
-  _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Source _$SourceFromJson(Map<String, dynamic> json) {
-  return _Source.fromJson(json);
+Post _$PostFromJson(Map<String, dynamic> json) {
+  return _Post.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Source {
-  String? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+mixin _$Post {
+  String? get link => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  DateTime? get pubDate => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SourceCopyWith<Source> get copyWith => throw _privateConstructorUsedError;
+  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SourceCopyWith<$Res> {
-  factory $SourceCopyWith(Source value, $Res Function(Source) then) =
-      _$SourceCopyWithImpl<$Res, Source>;
+abstract class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) then) =
+      _$PostCopyWithImpl<$Res, Post>;
   @useResult
-  $Res call({String? id, String? name});
+  $Res call(
+      {String? link,
+      String? title,
+      DateTime? pubDate,
+      String? description,
+      String? thumbnail});
 }
 
 /// @nodoc
-class _$SourceCopyWithImpl<$Res, $Val extends Source>
-    implements $SourceCopyWith<$Res> {
-  _$SourceCopyWithImpl(this._value, this._then);
+class _$PostCopyWithImpl<$Res, $Val extends Post>
+    implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -530,54 +472,88 @@ class _$SourceCopyWithImpl<$Res, $Val extends Source>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? link = freezed,
+    Object? title = freezed,
+    Object? pubDate = freezed,
+    Object? description = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pubDate: freezed == pubDate
+          ? _value.pubDate
+          : pubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$SourceImplCopyWith<$Res> implements $SourceCopyWith<$Res> {
-  factory _$$SourceImplCopyWith(
-          _$SourceImpl value, $Res Function(_$SourceImpl) then) =
-      __$$SourceImplCopyWithImpl<$Res>;
+abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$$PostImplCopyWith(
+          _$PostImpl value, $Res Function(_$PostImpl) then) =
+      __$$PostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? name});
+  $Res call(
+      {String? link,
+      String? title,
+      DateTime? pubDate,
+      String? description,
+      String? thumbnail});
 }
 
 /// @nodoc
-class __$$SourceImplCopyWithImpl<$Res>
-    extends _$SourceCopyWithImpl<$Res, _$SourceImpl>
-    implements _$$SourceImplCopyWith<$Res> {
-  __$$SourceImplCopyWithImpl(
-      _$SourceImpl _value, $Res Function(_$SourceImpl) _then)
+class __$$PostImplCopyWithImpl<$Res>
+    extends _$PostCopyWithImpl<$Res, _$PostImpl>
+    implements _$$PostImplCopyWith<$Res> {
+  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? link = freezed,
+    Object? title = freezed,
+    Object? pubDate = freezed,
+    Object? description = freezed,
+    Object? thumbnail = freezed,
   }) {
-    return _then(_$SourceImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+    return _then(_$PostImpl(
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pubDate: freezed == pubDate
+          ? _value.pubDate
+          : pubDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -585,61 +561,88 @@ class __$$SourceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SourceImpl implements _Source {
-  const _$SourceImpl({required this.id, required this.name});
+class _$PostImpl implements _Post {
+  const _$PostImpl(
+      {required this.link,
+      required this.title,
+      required this.pubDate,
+      required this.description,
+      required this.thumbnail});
 
-  factory _$SourceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SourceImplFromJson(json);
+  factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostImplFromJson(json);
 
   @override
-  final String? id;
+  final String? link;
   @override
-  final String? name;
+  final String? title;
+  @override
+  final DateTime? pubDate;
+  @override
+  final String? description;
+  @override
+  final String? thumbnail;
 
   @override
   String toString() {
-    return 'Source(id: $id, name: $name)';
+    return 'Post(link: $link, title: $title, pubDate: $pubDate, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SourceImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            other is _$PostImpl &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.pubDate, pubDate) || other.pubDate == pubDate) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode =>
+      Object.hash(runtimeType, link, title, pubDate, description, thumbnail);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>
-      __$$SourceImplCopyWithImpl<_$SourceImpl>(this, _$identity);
+  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
+      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SourceImplToJson(
+    return _$$PostImplToJson(
       this,
     );
   }
 }
 
-abstract class _Source implements Source {
-  const factory _Source(
-      {required final String? id, required final String? name}) = _$SourceImpl;
+abstract class _Post implements Post {
+  const factory _Post(
+      {required final String? link,
+      required final String? title,
+      required final DateTime? pubDate,
+      required final String? description,
+      required final String? thumbnail}) = _$PostImpl;
 
-  factory _Source.fromJson(Map<String, dynamic> json) = _$SourceImpl.fromJson;
+  factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
 
   @override
-  String? get id;
+  String? get link;
   @override
-  String? get name;
+  String? get title;
+  @override
+  DateTime? get pubDate;
+  @override
+  String? get description;
+  @override
+  String? get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$SourceImplCopyWith<_$SourceImpl> get copyWith =>
+  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

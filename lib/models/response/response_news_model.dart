@@ -6,35 +6,34 @@ part 'response_news_model.g.dart';
 @freezed
 class NewsHomePage with _$NewsHomePage {
   const factory NewsHomePage({
-    required String? status,
-    required int? totalResults,
-    required List<Article>? articles,
+    required bool? success,
+    required dynamic messege,
+    required Data? data,
   }) = _NewsHomePage;
   factory NewsHomePage.fromJson(Map<String, dynamic> json) =>
       _$NewsHomePageFromJson(json);
 }
 
 @freezed
-class Article with _$Article {
-  const factory Article({
-    required Source? source,
-    required String? author,
-    required String? title,
+class Data with _$Data {
+  const factory Data({
+    required String? link,
+    required String? image,
     required String? description,
-    required String? url,
-    required String? urlToImage,
-    required DateTime? publishedAt,
-    required String? content,
-  }) = _Article;
-  factory Article.fromJson(Map<String, dynamic> json) =>
-      _$ArticleFromJson(json);
+    required String? title,
+    required List<Post>? posts,
+  }) = _Data;
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
 
 @freezed
-class Source with _$Source {
-  const factory Source({
-    required String? id,
-    required String? name,
-  }) = _Source;
-  factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
+class Post with _$Post {
+  const factory Post({
+    required String? link,
+    required String? title,
+    required DateTime? pubDate,
+    required String? description,
+    required String? thumbnail,
+  }) = _Post;
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }

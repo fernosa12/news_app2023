@@ -13,8 +13,7 @@ class NewsHomePageCubit extends Cubit<NewsHomePageState> {
     emit(state.copyWith(isLoading: true));
 
     final dio = Dio();
-    const url =
-        'https://newsapi.org/v2/everything?q=tesla&from=2023-09-19&sortBy=publishedAt&apiKey=8dace79601b34beebd192a626f0a772e';
+    const url = 'https://api-berita-indonesia.vercel.app/antara/terbaru/';
 
     try {
       final response = await dio.get(url);
