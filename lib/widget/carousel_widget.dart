@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
 // Buat sebuah model (atau bisa juga menggunakan Map atau dynamic jika lebih disukai)
 class CarouselItem {
@@ -14,7 +14,8 @@ class CustomCarouselSlider extends StatelessWidget {
   final List<CarouselItem> items;
   final Widget Function(BuildContext, CarouselItem)? itemBuilder;
 
-  CustomCarouselSlider({
+  const CustomCarouselSlider({
+    super.key,
     required this.items,
     this.itemBuilder,
   });
@@ -45,7 +46,7 @@ class CustomCarouselSlider extends StatelessWidget {
 class DefaultCarouselItem extends StatelessWidget {
   final CarouselItem item;
 
-  DefaultCarouselItem({required this.item});
+  const DefaultCarouselItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {

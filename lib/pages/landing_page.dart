@@ -13,9 +13,9 @@ class LandingPage extends StatelessWidget {
 
     // Berdasarkan keadaan otentikasi, navigasikan ke halaman yang sesuai
     if (authState.isSignedIn) {
-      return const HomePage(); // Halaman beranda jika sudah masuk
+      return const HomePageLanding(); // Halaman beranda jika sudah masuk
     } else {
-      return const SignInPage(); // Halaman masuk jika belum masuk
+      return const SignInPageLanding(); // Halaman masuk jika belum masuk
     }
   }
 }

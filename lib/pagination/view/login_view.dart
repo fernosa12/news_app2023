@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
-import 'package:news_app/pages/home_page.dart';
-import 'package:news_app/pagination/view/register_view.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginView extends StatelessWidget {
@@ -29,11 +28,7 @@ class LoginView extends StatelessWidget {
                 SnackBar(content: Text(state.successMessage!)),
               );
               if (state.isAuthenticated) {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const HomePage()), // Ganti dengan halaman utama Anda
-                );
+                context.go('/');
               }
             }
           },
@@ -99,10 +94,7 @@ class LoginView extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const RegisterView()),
-                      );
+                      context.go('/signUp');
                     },
                     child: const Text("SIGN UP"),
                   ),

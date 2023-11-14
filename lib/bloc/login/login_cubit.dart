@@ -29,10 +29,19 @@ class LoginCubit extends Cubit<LoginState> {
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
-      var userCredential =
+      UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
-      GoogleSignInAuthentication auth =
-          await googleSignInAccount.authentication;
+      if (userCredential.user != null) {
+        String? token = await userCredential.user!.getIdToken(true);
+        emit(state.copyWith(
+            isLoading: false,
+            isAuthenticated: true,
+            successMessage: "Login berhasil!",
+            token: token ?? "Token is null"));
+      } else {
+        emit(state.copyWith(
+            isLoading: false, errorMessage: "UserCredential.user is null!"));
+      }
     } catch (_) {}
   }
 
@@ -42,10 +51,19 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      emit(state.copyWith(
-          isLoading: false,
-          isAuthenticated: true,
-          successMessage: "Login berhasil!"));
+      if (userCredential.user != null) {
+        // Mendapatkan token terbaru
+        String? token = await userCredential.user!.getIdToken(true);
+        emit(state.copyWith(
+            isLoading: false,
+            isAuthenticated: true,
+            successMessage: "Login berhasil!",
+            token: token ?? "Token is null"));
+      } else {
+        // Handle user null
+        emit(state.copyWith(
+            isLoading: false, errorMessage: "UserCredential.user is null!"));
+      }
     } catch (e) {
       emit(state.copyWith(
           isLoading: false, errorMessage: "Terjadi kesalahan saat login!"));

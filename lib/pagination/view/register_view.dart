@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
-import 'package:news_app/pagination/view/login_view.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -37,9 +37,7 @@ class _RegisterViewState extends State<RegisterView> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.succesMessge!)),
               );
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => LoginView()),
-              );
+              context.go('/login');
             }
           },
           builder: (context, state) {

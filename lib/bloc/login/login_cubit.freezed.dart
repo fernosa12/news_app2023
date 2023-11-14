@@ -19,6 +19,7 @@ mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get successMessage => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
   bool get isAuthenticated => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,6 +37,7 @@ abstract class $LoginStateCopyWith<$Res> {
       {bool isLoading,
       String? errorMessage,
       String? successMessage,
+      String? token,
       bool isAuthenticated});
 }
 
@@ -55,6 +57,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? isLoading = null,
     Object? errorMessage = freezed,
     Object? successMessage = freezed,
+    Object? token = freezed,
     Object? isAuthenticated = null,
   }) {
     return _then(_value.copyWith(
@@ -69,6 +72,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       successMessage: freezed == successMessage
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String?,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
@@ -90,6 +97,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       {bool isLoading,
       String? errorMessage,
       String? successMessage,
+      String? token,
       bool isAuthenticated});
 }
 
@@ -107,6 +115,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? errorMessage = freezed,
     Object? successMessage = freezed,
+    Object? token = freezed,
     Object? isAuthenticated = null,
   }) {
     return _then(_$InitialImpl(
@@ -121,6 +130,10 @@ class __$$InitialImplCopyWithImpl<$Res>
       successMessage: freezed == successMessage
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String?,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
@@ -137,6 +150,7 @@ class _$InitialImpl implements Initial {
       {this.isLoading = false,
       this.errorMessage,
       this.successMessage,
+      this.token,
       this.isAuthenticated = false});
 
   @override
@@ -147,12 +161,14 @@ class _$InitialImpl implements Initial {
   @override
   final String? successMessage;
   @override
+  final String? token;
+  @override
   @JsonKey()
   final bool isAuthenticated;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, errorMessage: $errorMessage, successMessage: $successMessage, isAuthenticated: $isAuthenticated)';
+    return 'LoginState(isLoading: $isLoading, errorMessage: $errorMessage, successMessage: $successMessage, token: $token, isAuthenticated: $isAuthenticated)';
   }
 
   @override
@@ -166,13 +182,14 @@ class _$InitialImpl implements Initial {
                 other.errorMessage == errorMessage) &&
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
+            (identical(other.token, token) || other.token == token) &&
             (identical(other.isAuthenticated, isAuthenticated) ||
                 other.isAuthenticated == isAuthenticated));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isLoading, errorMessage, successMessage, isAuthenticated);
+  int get hashCode => Object.hash(runtimeType, isLoading, errorMessage,
+      successMessage, token, isAuthenticated);
 
   @JsonKey(ignore: true)
   @override
@@ -186,6 +203,7 @@ abstract class Initial implements LoginState {
       {final bool isLoading,
       final String? errorMessage,
       final String? successMessage,
+      final String? token,
       final bool isAuthenticated}) = _$InitialImpl;
 
   @override
@@ -194,6 +212,8 @@ abstract class Initial implements LoginState {
   String? get errorMessage;
   @override
   String? get successMessage;
+  @override
+  String? get token;
   @override
   bool get isAuthenticated;
   @override

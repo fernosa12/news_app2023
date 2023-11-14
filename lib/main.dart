@@ -1,23 +1,64 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
 import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
 import 'package:news_app/firebase_options.dart';
+import 'package:news_app/pagination/view/bookmark_view.dart';
 import 'package:news_app/pagination/view/home_view.dart';
 import 'package:news_app/pagination/view/login_view.dart';
+import 'package:news_app/pagination/view/profile_view.dart';
+import 'package:news_app/pagination/view/register_view.dart';
+
+import 'pagination/view/category_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final GoRouter _router = GoRouter(
+    initialLocation: '/login',
+    routes: <GoRoute>[
+      GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) =>
+            const HomePageBody(),
+      ),
+      GoRoute(
+        path: '/category',
+        builder: (BuildContext context, GoRouterState state) => CategoryView(),
+      ),
+      GoRoute(
+        path: '/bookmark',
+        builder: (BuildContext context, GoRouterState state) =>
+            const BookmarkView(),
+      ),
+      GoRoute(
+        path: '/profile',
+        builder: (BuildContext context, GoRouterState state) =>
+            const ProfileView(),
+      ),
+      GoRoute(
+        path: '/login',
+        builder: (BuildContext context, GoRouterState state) => LoginView(),
+      ),
+      GoRoute(
+        path: '/signUp',
+        builder: (BuildContext context, GoRouterState state) =>
+            const RegisterView(),
+      ),
+      // Add more routes here
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +72,19 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NewsHomePageCubit()..getNews(),
-          child: HomePageBody(),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginView(),
+
+        routerConfig: _router,
+        // routeInformationParser: _router.routeInformationParser,
+        // routeInformationProvider: _router.routeInformationProvider,
+        // Remove the home property because we are using routing
       ),
     );
   }

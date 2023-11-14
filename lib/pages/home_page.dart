@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
 import 'package:news_app/pagination/view/home_view.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-  static Page page() => const MaterialPage<void>(child: HomePage());
+class HomePageLanding extends StatelessWidget {
+  const HomePageLanding({Key? key}) : super(key: key);
+  static Page page() => const MaterialPage<void>(child: HomePageLanding());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
         create: (_) => LoginCubit(),
-        child: HomePageBody(),
+        child: const HomePageBody(),
       ),
     );
   }
