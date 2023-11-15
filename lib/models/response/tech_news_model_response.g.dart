@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'law_news_model_response.dart';
+part of 'tech_news_model_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LawNewsImpl _$$LawNewsImplFromJson(Map<String, dynamic> json) =>
-    _$LawNewsImpl(
+_$TechNewsImpl _$$TechNewsImplFromJson(Map<String, dynamic> json) =>
+    _$TechNewsImpl(
       success: json['success'] as bool?,
       message: json['message'],
       data: json['data'] == null
@@ -15,7 +15,7 @@ _$LawNewsImpl _$$LawNewsImplFromJson(Map<String, dynamic> json) =>
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$LawNewsImplToJson(_$LawNewsImpl instance) =>
+Map<String, dynamic> _$$TechNewsImplToJson(_$TechNewsImpl instance) =>
     <String, dynamic>{
       'success': instance.success,
       'message': instance.message,

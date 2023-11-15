@@ -1,17 +1,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'law_news_model_response.freezed.dart';
-part 'law_news_model_response.g.dart';
+part 'economy_news_model_response.freezed.dart';
+part 'economy_news_model_response.g.dart';
 
 @freezed
-class LawNews with _$LawNews {
-  const factory LawNews({
+class EconomyNews with _$EconomyNews {
+  const factory EconomyNews({
     required bool? success,
     required dynamic message,
     required Data? data,
-  }) = _LawNews;
-  factory LawNews.fromJson(Map<String, dynamic> json) =>
-      _$LawNewsFromJson(json);
+  }) = _EconomyNews;
+  factory EconomyNews.fromJson(Map<String, dynamic> json) =>
+      _$EconomyNewsFromJson(json);
 }
 
 @freezed

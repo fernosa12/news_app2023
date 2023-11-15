@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'law_news_model_response.dart';
+part of 'sport_news_model_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,25 +14,26 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LawNews _$LawNewsFromJson(Map<String, dynamic> json) {
-  return _LawNews.fromJson(json);
+SportNews _$SportNewsFromJson(Map<String, dynamic> json) {
+  return _SportNews.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LawNews {
+mixin _$SportNews {
   bool? get success => throw _privateConstructorUsedError;
   dynamic get message => throw _privateConstructorUsedError;
   Data? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LawNewsCopyWith<LawNews> get copyWith => throw _privateConstructorUsedError;
+  $SportNewsCopyWith<SportNews> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LawNewsCopyWith<$Res> {
-  factory $LawNewsCopyWith(LawNews value, $Res Function(LawNews) then) =
-      _$LawNewsCopyWithImpl<$Res, LawNews>;
+abstract class $SportNewsCopyWith<$Res> {
+  factory $SportNewsCopyWith(SportNews value, $Res Function(SportNews) then) =
+      _$SportNewsCopyWithImpl<$Res, SportNews>;
   @useResult
   $Res call({bool? success, dynamic message, Data? data});
 
@@ -40,9 +41,9 @@ abstract class $LawNewsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LawNewsCopyWithImpl<$Res, $Val extends LawNews>
-    implements $LawNewsCopyWith<$Res> {
-  _$LawNewsCopyWithImpl(this._value, this._then);
+class _$SportNewsCopyWithImpl<$Res, $Val extends SportNews>
+    implements $SportNewsCopyWith<$Res> {
+  _$SportNewsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,10 +87,11 @@ class _$LawNewsCopyWithImpl<$Res, $Val extends LawNews>
 }
 
 /// @nodoc
-abstract class _$$LawNewsImplCopyWith<$Res> implements $LawNewsCopyWith<$Res> {
-  factory _$$LawNewsImplCopyWith(
-          _$LawNewsImpl value, $Res Function(_$LawNewsImpl) then) =
-      __$$LawNewsImplCopyWithImpl<$Res>;
+abstract class _$$SportNewsImplCopyWith<$Res>
+    implements $SportNewsCopyWith<$Res> {
+  factory _$$SportNewsImplCopyWith(
+          _$SportNewsImpl value, $Res Function(_$SportNewsImpl) then) =
+      __$$SportNewsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? success, dynamic message, Data? data});
@@ -99,11 +101,11 @@ abstract class _$$LawNewsImplCopyWith<$Res> implements $LawNewsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LawNewsImplCopyWithImpl<$Res>
-    extends _$LawNewsCopyWithImpl<$Res, _$LawNewsImpl>
-    implements _$$LawNewsImplCopyWith<$Res> {
-  __$$LawNewsImplCopyWithImpl(
-      _$LawNewsImpl _value, $Res Function(_$LawNewsImpl) _then)
+class __$$SportNewsImplCopyWithImpl<$Res>
+    extends _$SportNewsCopyWithImpl<$Res, _$SportNewsImpl>
+    implements _$$SportNewsImplCopyWith<$Res> {
+  __$$SportNewsImplCopyWithImpl(
+      _$SportNewsImpl _value, $Res Function(_$SportNewsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +115,7 @@ class __$$LawNewsImplCopyWithImpl<$Res>
     Object? message = freezed,
     Object? data = freezed,
   }) {
-    return _then(_$LawNewsImpl(
+    return _then(_$SportNewsImpl(
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -132,12 +134,12 @@ class __$$LawNewsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LawNewsImpl implements _LawNews {
-  const _$LawNewsImpl(
+class _$SportNewsImpl implements _SportNews {
+  const _$SportNewsImpl(
       {required this.success, required this.message, required this.data});
 
-  factory _$LawNewsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LawNewsImplFromJson(json);
+  factory _$SportNewsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SportNewsImplFromJson(json);
 
   @override
   final bool? success;
@@ -148,14 +150,14 @@ class _$LawNewsImpl implements _LawNews {
 
   @override
   String toString() {
-    return 'LawNews(success: $success, message: $message, data: $data)';
+    return 'SportNews(success: $success, message: $message, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LawNewsImpl &&
+            other is _$SportNewsImpl &&
             (identical(other.success, success) || other.success == success) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             (identical(other.data, data) || other.data == data));
@@ -169,24 +171,25 @@ class _$LawNewsImpl implements _LawNews {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LawNewsImplCopyWith<_$LawNewsImpl> get copyWith =>
-      __$$LawNewsImplCopyWithImpl<_$LawNewsImpl>(this, _$identity);
+  _$$SportNewsImplCopyWith<_$SportNewsImpl> get copyWith =>
+      __$$SportNewsImplCopyWithImpl<_$SportNewsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LawNewsImplToJson(
+    return _$$SportNewsImplToJson(
       this,
     );
   }
 }
 
-abstract class _LawNews implements LawNews {
-  const factory _LawNews(
+abstract class _SportNews implements SportNews {
+  const factory _SportNews(
       {required final bool? success,
       required final dynamic message,
-      required final Data? data}) = _$LawNewsImpl;
+      required final Data? data}) = _$SportNewsImpl;
 
-  factory _LawNews.fromJson(Map<String, dynamic> json) = _$LawNewsImpl.fromJson;
+  factory _SportNews.fromJson(Map<String, dynamic> json) =
+      _$SportNewsImpl.fromJson;
 
   @override
   bool? get success;
@@ -196,7 +199,7 @@ abstract class _LawNews implements LawNews {
   Data? get data;
   @override
   @JsonKey(ignore: true)
-  _$$LawNewsImplCopyWith<_$LawNewsImpl> get copyWith =>
+  _$$SportNewsImplCopyWith<_$SportNewsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

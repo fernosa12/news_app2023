@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'politik_news_cubit.dart';
+part of 'sport_news_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,31 +15,31 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PolitikNewsState {
+mixin _$SportNewsState {
   bool get isLoading => throw _privateConstructorUsedError;
-  PolitikNews? get politikNews => throw _privateConstructorUsedError;
+  SportNews? get sportNews => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PolitikNewsStateCopyWith<PolitikNewsState> get copyWith =>
+  $SportNewsStateCopyWith<SportNewsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PolitikNewsStateCopyWith<$Res> {
-  factory $PolitikNewsStateCopyWith(
-          PolitikNewsState value, $Res Function(PolitikNewsState) then) =
-      _$PolitikNewsStateCopyWithImpl<$Res, PolitikNewsState>;
+abstract class $SportNewsStateCopyWith<$Res> {
+  factory $SportNewsStateCopyWith(
+          SportNewsState value, $Res Function(SportNewsState) then) =
+      _$SportNewsStateCopyWithImpl<$Res, SportNewsState>;
   @useResult
-  $Res call({bool isLoading, PolitikNews? politikNews, String? errorMessage});
+  $Res call({bool isLoading, SportNews? sportNews, String? errorMessage});
 
-  $PolitikNewsCopyWith<$Res>? get politikNews;
+  $SportNewsCopyWith<$Res>? get sportNews;
 }
 
 /// @nodoc
-class _$PolitikNewsStateCopyWithImpl<$Res, $Val extends PolitikNewsState>
-    implements $PolitikNewsStateCopyWith<$Res> {
-  _$PolitikNewsStateCopyWithImpl(this._value, this._then);
+class _$SportNewsStateCopyWithImpl<$Res, $Val extends SportNewsState>
+    implements $SportNewsStateCopyWith<$Res> {
+  _$SportNewsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -50,7 +50,7 @@ class _$PolitikNewsStateCopyWithImpl<$Res, $Val extends PolitikNewsState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? politikNews = freezed,
+    Object? sportNews = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -58,10 +58,10 @@ class _$PolitikNewsStateCopyWithImpl<$Res, $Val extends PolitikNewsState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      politikNews: freezed == politikNews
-          ? _value.politikNews
-          : politikNews // ignore: cast_nullable_to_non_nullable
-              as PolitikNews?,
+      sportNews: freezed == sportNews
+          ? _value.sportNews
+          : sportNews // ignore: cast_nullable_to_non_nullable
+              as SportNews?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -71,34 +71,34 @@ class _$PolitikNewsStateCopyWithImpl<$Res, $Val extends PolitikNewsState>
 
   @override
   @pragma('vm:prefer-inline')
-  $PolitikNewsCopyWith<$Res>? get politikNews {
-    if (_value.politikNews == null) {
+  $SportNewsCopyWith<$Res>? get sportNews {
+    if (_value.sportNews == null) {
       return null;
     }
 
-    return $PolitikNewsCopyWith<$Res>(_value.politikNews!, (value) {
-      return _then(_value.copyWith(politikNews: value) as $Val);
+    return $SportNewsCopyWith<$Res>(_value.sportNews!, (value) {
+      return _then(_value.copyWith(sportNews: value) as $Val);
     });
   }
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res>
-    implements $PolitikNewsStateCopyWith<$Res> {
+    implements $SportNewsStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, PolitikNews? politikNews, String? errorMessage});
+  $Res call({bool isLoading, SportNews? sportNews, String? errorMessage});
 
   @override
-  $PolitikNewsCopyWith<$Res>? get politikNews;
+  $SportNewsCopyWith<$Res>? get sportNews;
 }
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$PolitikNewsStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$SportNewsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -108,7 +108,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? politikNews = freezed,
+    Object? sportNews = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(_$InitialImpl(
@@ -116,10 +116,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      politikNews: freezed == politikNews
-          ? _value.politikNews
-          : politikNews // ignore: cast_nullable_to_non_nullable
-              as PolitikNews?,
+      sportNews: freezed == sportNews
+          ? _value.sportNews
+          : sportNews // ignore: cast_nullable_to_non_nullable
+              as SportNews?,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -132,19 +132,19 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 class _$InitialImpl implements _Initial {
   const _$InitialImpl(
-      {this.isLoading = false, this.politikNews, this.errorMessage});
+      {this.isLoading = false, this.sportNews, this.errorMessage});
 
   @override
   @JsonKey()
   final bool isLoading;
   @override
-  final PolitikNews? politikNews;
+  final SportNews? sportNews;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'PolitikNewsState(isLoading: $isLoading, politikNews: $politikNews, errorMessage: $errorMessage)';
+    return 'SportNewsState(isLoading: $isLoading, sportNews: $sportNews, errorMessage: $errorMessage)';
   }
 
   @override
@@ -154,15 +154,15 @@ class _$InitialImpl implements _Initial {
             other is _$InitialImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.politikNews, politikNews) ||
-                other.politikNews == politikNews) &&
+            (identical(other.sportNews, sportNews) ||
+                other.sportNews == sportNews) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isLoading, politikNews, errorMessage);
+      Object.hash(runtimeType, isLoading, sportNews, errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -171,16 +171,16 @@ class _$InitialImpl implements _Initial {
       __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
-abstract class _Initial implements PolitikNewsState {
+abstract class _Initial implements SportNewsState {
   const factory _Initial(
       {final bool isLoading,
-      final PolitikNews? politikNews,
+      final SportNews? sportNews,
       final String? errorMessage}) = _$InitialImpl;
 
   @override
   bool get isLoading;
   @override
-  PolitikNews? get politikNews;
+  SportNews? get sportNews;
   @override
   String? get errorMessage;
   @override
