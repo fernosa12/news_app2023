@@ -8,10 +8,10 @@ part 'economy_news_state.dart';
 
 class EconomyNewsCubit extends Cubit<EconomyNewsState> {
   EconomyNewsCubit() : super(const EconomyNewsState());
-  Future<void> getPolitikNews() async {
+  Future<void> getEconomyNews() async {
     emit(state.copyWith(isLoading: true));
     final dio = Dio();
-    const url = 'https://api-berita-indonesia.vercel.app/antara/tekno/';
+    const url = 'https://api-berita-indonesia.vercel.app/antara/ekonomi/';
     try {
       final response = await dio.get(url);
       if (response.statusCode == 200) {

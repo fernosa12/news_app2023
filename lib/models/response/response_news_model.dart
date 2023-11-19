@@ -4,14 +4,14 @@ part 'response_news_model.freezed.dart';
 part 'response_news_model.g.dart';
 
 @freezed
-class NewsHomePage with _$NewsHomePage {
-  const factory NewsHomePage({
+class NewsModel with _$NewsModel {
+  const factory NewsModel({
     required bool? success,
     required dynamic messege,
     required Data? data,
-  }) = _NewsHomePage;
-  factory NewsHomePage.fromJson(Map<String, dynamic> json) =>
-      _$NewsHomePageFromJson(json);
+  }) = _NewsModel;
+  factory NewsModel.fromJson(Map<String, dynamic> json) =>
+      _$NewsModelFromJson(json);
 }
 
 @freezed

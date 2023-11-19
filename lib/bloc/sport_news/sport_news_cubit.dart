@@ -8,10 +8,10 @@ part 'sport_news_state.dart';
 
 class SportNewsCubit extends Cubit<SportNewsState> {
   SportNewsCubit() : super(const SportNewsState());
-  Future<void> getPolitikNews() async {
+  Future<void> getSportNews() async {
     emit(state.copyWith(isLoading: true));
     final dio = Dio();
-    const url = 'https://api-berita-indonesia.vercel.app/antara/tekno/';
+    const url = 'https://api-berita-indonesia.vercel.app/antara/olahraga/';
     try {
       final response = await dio.get(url);
       if (response.statusCode == 200) {

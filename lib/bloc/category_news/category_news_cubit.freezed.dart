@@ -23,6 +23,7 @@ mixin _$CategoryNewsState {
   TechNews? get techNews => throw _privateConstructorUsedError;
   SportNews? get sportNews => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  List<BasePost>? get combinedPosts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryNewsStateCopyWith<CategoryNewsState> get copyWith =>
@@ -42,7 +43,8 @@ abstract class $CategoryNewsStateCopyWith<$Res> {
       EconomyNews? economyNews,
       TechNews? techNews,
       SportNews? sportNews,
-      String? errorMessage});
+      String? errorMessage,
+      List<BasePost>? combinedPosts});
 
   $PolitikNewsCopyWith<$Res>? get politikNews;
   $LawNewsCopyWith<$Res>? get lawNews;
@@ -71,6 +73,7 @@ class _$CategoryNewsStateCopyWithImpl<$Res, $Val extends CategoryNewsState>
     Object? techNews = freezed,
     Object? sportNews = freezed,
     Object? errorMessage = freezed,
+    Object? combinedPosts = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -101,6 +104,10 @@ class _$CategoryNewsStateCopyWithImpl<$Res, $Val extends CategoryNewsState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      combinedPosts: freezed == combinedPosts
+          ? _value.combinedPosts
+          : combinedPosts // ignore: cast_nullable_to_non_nullable
+              as List<BasePost>?,
     ) as $Val);
   }
 
@@ -180,7 +187,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       EconomyNews? economyNews,
       TechNews? techNews,
       SportNews? sportNews,
-      String? errorMessage});
+      String? errorMessage,
+      List<BasePost>? combinedPosts});
 
   @override
   $PolitikNewsCopyWith<$Res>? get politikNews;
@@ -212,6 +220,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? techNews = freezed,
     Object? sportNews = freezed,
     Object? errorMessage = freezed,
+    Object? combinedPosts = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
@@ -242,6 +251,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      combinedPosts: freezed == combinedPosts
+          ? _value._combinedPosts
+          : combinedPosts // ignore: cast_nullable_to_non_nullable
+              as List<BasePost>?,
     ));
   }
 }
@@ -256,7 +269,9 @@ class _$InitialImpl implements _Initial {
       this.economyNews,
       this.techNews,
       this.sportNews,
-      this.errorMessage});
+      this.errorMessage,
+      final List<BasePost>? combinedPosts})
+      : _combinedPosts = combinedPosts;
 
   @override
   @JsonKey()
@@ -273,10 +288,19 @@ class _$InitialImpl implements _Initial {
   final SportNews? sportNews;
   @override
   final String? errorMessage;
+  final List<BasePost>? _combinedPosts;
+  @override
+  List<BasePost>? get combinedPosts {
+    final value = _combinedPosts;
+    if (value == null) return null;
+    if (_combinedPosts is EqualUnmodifiableListView) return _combinedPosts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'CategoryNewsState(isLoading: $isLoading, politikNews: $politikNews, lawNews: $lawNews, economyNews: $economyNews, techNews: $techNews, sportNews: $sportNews, errorMessage: $errorMessage)';
+    return 'CategoryNewsState(isLoading: $isLoading, politikNews: $politikNews, lawNews: $lawNews, economyNews: $economyNews, techNews: $techNews, sportNews: $sportNews, errorMessage: $errorMessage, combinedPosts: $combinedPosts)';
   }
 
   @override
@@ -296,12 +320,22 @@ class _$InitialImpl implements _Initial {
             (identical(other.sportNews, sportNews) ||
                 other.sportNews == sportNews) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            const DeepCollectionEquality()
+                .equals(other._combinedPosts, _combinedPosts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, politikNews, lawNews,
-      economyNews, techNews, sportNews, errorMessage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      politikNews,
+      lawNews,
+      economyNews,
+      techNews,
+      sportNews,
+      errorMessage,
+      const DeepCollectionEquality().hash(_combinedPosts));
 
   @JsonKey(ignore: true)
   @override
@@ -318,7 +352,8 @@ abstract class _Initial implements CategoryNewsState {
       final EconomyNews? economyNews,
       final TechNews? techNews,
       final SportNews? sportNews,
-      final String? errorMessage}) = _$InitialImpl;
+      final String? errorMessage,
+      final List<BasePost>? combinedPosts}) = _$InitialImpl;
 
   @override
   bool get isLoading;
@@ -334,6 +369,8 @@ abstract class _Initial implements CategoryNewsState {
   SportNews? get sportNews;
   @override
   String? get errorMessage;
+  @override
+  List<BasePost>? get combinedPosts;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:news_app/models/base_post.dart';
 
 part 'tech_news_model_response.freezed.dart';
 part 'tech_news_model_response.g.dart';
@@ -21,19 +22,20 @@ class Data with _$Data {
     required String? image,
     required String? description,
     required String? title,
-    required List<Post>? posts,
+    required List<PostTech>? posts,
   }) = _Data;
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
 
 @freezed
-class Post with _$Post {
-  const factory Post({
+class PostTech with _$PostTech implements BasePost {
+  const factory PostTech({
     required String? link,
     required String? title,
     required DateTime? pubDate,
     required String? description,
     required String? thumbnail,
   }) = _Post;
-  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+  factory PostTech.fromJson(Map<String, dynamic> json) =>
+      _$PostTechFromJson(json);
 }

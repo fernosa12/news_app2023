@@ -28,7 +28,7 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       description: json['description'] as String?,
       title: json['title'] as String?,
       posts: (json['posts'] as List<dynamic>?)
-          ?.map((e) => Post.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PostLaw.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

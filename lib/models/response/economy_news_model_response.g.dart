@@ -28,7 +28,7 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       description: json['description'] as String?,
       title: json['title'] as String?,
       posts: (json['posts'] as List<dynamic>?)
-          ?.map((e) => Post.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => PostEconomy.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -41,7 +41,8 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'posts': instance.posts,
     };
 
-_$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
+_$PostEconomyImpl _$$PostEconomyImplFromJson(Map<String, dynamic> json) =>
+    _$PostEconomyImpl(
       link: json['link'] as String?,
       title: json['title'] as String?,
       pubDate: json['pubDate'] == null
@@ -51,7 +52,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
       thumbnail: json['thumbnail'] as String?,
     );
 
-Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
+Map<String, dynamic> _$$PostEconomyImplToJson(_$PostEconomyImpl instance) =>
     <String, dynamic>{
       'link': instance.link,
       'title': instance.title,

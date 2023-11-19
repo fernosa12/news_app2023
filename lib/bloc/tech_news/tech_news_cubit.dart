@@ -8,7 +8,7 @@ part 'tech_news_state.dart';
 
 class TechNewsCubit extends Cubit<TechNewsState> {
   TechNewsCubit() : super(const TechNewsState());
-  Future<void> getPolitikNews() async {
+  Future<void> getTechNews() async {
     emit(state.copyWith(isLoading: true));
     final dio = Dio();
     const url = 'https://api-berita-indonesia.vercel.app/antara/tekno/';

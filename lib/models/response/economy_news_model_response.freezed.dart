@@ -214,7 +214,7 @@ mixin _$Data {
   String? get image => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  List<Post>? get posts => throw _privateConstructorUsedError;
+  List<PostEconomy>? get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -231,7 +231,7 @@ abstract class $DataCopyWith<$Res> {
       String? image,
       String? description,
       String? title,
-      List<Post>? posts});
+      List<PostEconomy>? posts});
 }
 
 /// @nodoc
@@ -273,7 +273,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
       posts: freezed == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<Post>?,
+              as List<PostEconomy>?,
     ) as $Val);
   }
 }
@@ -290,7 +290,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       String? image,
       String? description,
       String? title,
-      List<Post>? posts});
+      List<PostEconomy>? posts});
 }
 
 /// @nodoc
@@ -329,7 +329,7 @@ class __$$DataImplCopyWithImpl<$Res>
       posts: freezed == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<Post>?,
+              as List<PostEconomy>?,
     ));
   }
 }
@@ -342,7 +342,7 @@ class _$DataImpl implements _Data {
       required this.image,
       required this.description,
       required this.title,
-      required final List<Post>? posts})
+      required final List<PostEconomy>? posts})
       : _posts = posts;
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
@@ -356,9 +356,9 @@ class _$DataImpl implements _Data {
   final String? description;
   @override
   final String? title;
-  final List<Post>? _posts;
+  final List<PostEconomy>? _posts;
   @override
-  List<Post>? get posts {
+  List<PostEconomy>? get posts {
     final value = _posts;
     if (value == null) return null;
     if (_posts is EqualUnmodifiableListView) return _posts;
@@ -409,7 +409,7 @@ abstract class _Data implements Data {
       required final String? image,
       required final String? description,
       required final String? title,
-      required final List<Post>? posts}) = _$DataImpl;
+      required final List<PostEconomy>? posts}) = _$DataImpl;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
@@ -422,19 +422,19 @@ abstract class _Data implements Data {
   @override
   String? get title;
   @override
-  List<Post>? get posts;
+  List<PostEconomy>? get posts;
   @override
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Post _$PostFromJson(Map<String, dynamic> json) {
-  return _Post.fromJson(json);
+PostEconomy _$PostEconomyFromJson(Map<String, dynamic> json) {
+  return _PostEconomy.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Post {
+mixin _$PostEconomy {
   String? get link => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   DateTime? get pubDate => throw _privateConstructorUsedError;
@@ -443,13 +443,15 @@ mixin _$Post {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+  $PostEconomyCopyWith<PostEconomy> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostCopyWith<$Res> {
-  factory $PostCopyWith(Post value, $Res Function(Post) then) =
-      _$PostCopyWithImpl<$Res, Post>;
+abstract class $PostEconomyCopyWith<$Res> {
+  factory $PostEconomyCopyWith(
+          PostEconomy value, $Res Function(PostEconomy) then) =
+      _$PostEconomyCopyWithImpl<$Res, PostEconomy>;
   @useResult
   $Res call(
       {String? link,
@@ -460,9 +462,9 @@ abstract class $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PostCopyWithImpl<$Res, $Val extends Post>
-    implements $PostCopyWith<$Res> {
-  _$PostCopyWithImpl(this._value, this._then);
+class _$PostEconomyCopyWithImpl<$Res, $Val extends PostEconomy>
+    implements $PostEconomyCopyWith<$Res> {
+  _$PostEconomyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -504,10 +506,11 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 }
 
 /// @nodoc
-abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory _$$PostImplCopyWith(
-          _$PostImpl value, $Res Function(_$PostImpl) then) =
-      __$$PostImplCopyWithImpl<$Res>;
+abstract class _$$PostEconomyImplCopyWith<$Res>
+    implements $PostEconomyCopyWith<$Res> {
+  factory _$$PostEconomyImplCopyWith(
+          _$PostEconomyImpl value, $Res Function(_$PostEconomyImpl) then) =
+      __$$PostEconomyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -519,10 +522,11 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PostImplCopyWithImpl<$Res>
-    extends _$PostCopyWithImpl<$Res, _$PostImpl>
-    implements _$$PostImplCopyWith<$Res> {
-  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
+class __$$PostEconomyImplCopyWithImpl<$Res>
+    extends _$PostEconomyCopyWithImpl<$Res, _$PostEconomyImpl>
+    implements _$$PostEconomyImplCopyWith<$Res> {
+  __$$PostEconomyImplCopyWithImpl(
+      _$PostEconomyImpl _value, $Res Function(_$PostEconomyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -534,7 +538,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? thumbnail = freezed,
   }) {
-    return _then(_$PostImpl(
+    return _then(_$PostEconomyImpl(
       link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -561,16 +565,16 @@ class __$$PostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostImpl implements _Post {
-  const _$PostImpl(
+class _$PostEconomyImpl implements _PostEconomy {
+  const _$PostEconomyImpl(
       {required this.link,
       required this.title,
       required this.pubDate,
       required this.description,
       required this.thumbnail});
 
-  factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostImplFromJson(json);
+  factory _$PostEconomyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostEconomyImplFromJson(json);
 
   @override
   final String? link;
@@ -585,14 +589,14 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(link: $link, title: $title, pubDate: $pubDate, description: $description, thumbnail: $thumbnail)';
+    return 'PostEconomy(link: $link, title: $title, pubDate: $pubDate, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostImpl &&
+            other is _$PostEconomyImpl &&
             (identical(other.link, link) || other.link == link) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.pubDate, pubDate) || other.pubDate == pubDate) &&
@@ -610,26 +614,27 @@ class _$PostImpl implements _Post {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
+  _$$PostEconomyImplCopyWith<_$PostEconomyImpl> get copyWith =>
+      __$$PostEconomyImplCopyWithImpl<_$PostEconomyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PostImplToJson(
+    return _$$PostEconomyImplToJson(
       this,
     );
   }
 }
 
-abstract class _Post implements Post {
-  const factory _Post(
+abstract class _PostEconomy implements PostEconomy {
+  const factory _PostEconomy(
       {required final String? link,
       required final String? title,
       required final DateTime? pubDate,
       required final String? description,
-      required final String? thumbnail}) = _$PostImpl;
+      required final String? thumbnail}) = _$PostEconomyImpl;
 
-  factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
+  factory _PostEconomy.fromJson(Map<String, dynamic> json) =
+      _$PostEconomyImpl.fromJson;
 
   @override
   String? get link;
@@ -643,6 +648,6 @@ abstract class _Post implements Post {
   String? get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
+  _$$PostEconomyImplCopyWith<_$PostEconomyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
