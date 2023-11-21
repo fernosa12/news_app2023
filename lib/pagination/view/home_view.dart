@@ -2,10 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart';
+import 'package:news_app/bloc/cubit/news_homepage_cubit.dart';
 import 'package:news_app/pagination/view/bookmark_view.dart';
-import 'package:news_app/pagination/view/category_view.dart';
 import 'package:news_app/pagination/view/profile_view.dart';
+
+import 'category_view.dart';
 
 class HomePageBody extends StatefulWidget {
   const HomePageBody({super.key});
@@ -27,20 +28,23 @@ class _HomePageBodyState extends State<HomePageBody> {
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
         ),
       ),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        children: [
-          const HomePage(),
-          CategoryView(),
-          const BookmarkView(),
-          const ProfileView(),
-        ],
-      ),
+      body: Builder(builder: (context) {
+        context.read<NewsHomepageCubit>().fetchNewsHomePage();
+        return PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          children: const [
+            HomePage(),
+            CategoryView(),
+            BookmarkView(),
+            ProfileView(),
+          ],
+        );
+      }),
       bottomNavigationBar: BottomNavigationBar(
         type:
             BottomNavigationBarType.fixed, // Fixed type untuk lebih dari 3 item
@@ -50,8 +54,8 @@ class _HomePageBodyState extends State<HomePageBody> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.trending_up),
-            label: 'Trending',
+            icon: Icon(Icons.category),
+            label: 'Category',
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark), label: 'Bookmark'),
@@ -79,15 +83,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NewsHomePageCubit, NewsHomePageState>(
+    return BlocBuilder<NewsHomepageCubit, NewsHomepageState>(
       builder: (context, state) {
         if (state.isLoading) {
           return const Center(child: CircularProgressIndicator());
-        } else if (state.errorMessage?.isNotEmpty == true) {
-          return Center(child: Text('Error: ${state.errorMessage}'));
-        } else if (state.newsHomePage != null &&
-            state.newsHomePage!.data != null) {
-          final posts = state.newsHomePage!.data!.posts ?? [];
+        } else if (state.errorMassege?.isNotEmpty == true) {
+          return Center(child: Text('Error: ${state.errorMassege}'));
+        } else if (state.newsHomePageResponse != null &&
+            state.newsHomePageResponse!.data != null) {
+          final posts = state.newsHomePageResponse?.data?.posts ?? [];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

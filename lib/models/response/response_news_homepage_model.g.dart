@@ -1,24 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tech_news_model_response.dart';
+part of 'response_news_homepage_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TechNewsImpl _$$TechNewsImplFromJson(Map<String, dynamic> json) =>
-    _$TechNewsImpl(
+_$NewsHomePageResponseImpl _$$NewsHomePageResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NewsHomePageResponseImpl(
       success: json['success'] as bool?,
-      message: json['message'],
+      messege: json['messege'],
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$TechNewsImplToJson(_$TechNewsImpl instance) =>
+Map<String, dynamic> _$$NewsHomePageResponseImplToJson(
+        _$NewsHomePageResponseImpl instance) =>
     <String, dynamic>{
       'success': instance.success,
-      'message': instance.message,
+      'messege': instance.messege,
       'data': instance.data,
     };
 
@@ -28,7 +30,7 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       description: json['description'] as String?,
       title: json['title'] as String?,
       posts: (json['posts'] as List<dynamic>?)
-          ?.map((e) => PostTech.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Post.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

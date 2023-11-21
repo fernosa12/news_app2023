@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'politik_news_model_response.dart';
+part of 'response_news_homepage_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,37 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PolitikNews _$PolitikNewsFromJson(Map<String, dynamic> json) {
-  return _PolitikNews.fromJson(json);
+NewsHomePageResponse _$NewsHomePageResponseFromJson(Map<String, dynamic> json) {
+  return _NewsHomePageResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PolitikNews {
+mixin _$NewsHomePageResponse {
   bool? get success => throw _privateConstructorUsedError;
-  dynamic get message => throw _privateConstructorUsedError;
+  dynamic get messege => throw _privateConstructorUsedError;
   Data? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PolitikNewsCopyWith<PolitikNews> get copyWith =>
+  $NewsHomePageResponseCopyWith<NewsHomePageResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PolitikNewsCopyWith<$Res> {
-  factory $PolitikNewsCopyWith(
-          PolitikNews value, $Res Function(PolitikNews) then) =
-      _$PolitikNewsCopyWithImpl<$Res, PolitikNews>;
+abstract class $NewsHomePageResponseCopyWith<$Res> {
+  factory $NewsHomePageResponseCopyWith(NewsHomePageResponse value,
+          $Res Function(NewsHomePageResponse) then) =
+      _$NewsHomePageResponseCopyWithImpl<$Res, NewsHomePageResponse>;
   @useResult
-  $Res call({bool? success, dynamic message, Data? data});
+  $Res call({bool? success, dynamic messege, Data? data});
 
   $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class _$PolitikNewsCopyWithImpl<$Res, $Val extends PolitikNews>
-    implements $PolitikNewsCopyWith<$Res> {
-  _$PolitikNewsCopyWithImpl(this._value, this._then);
+class _$NewsHomePageResponseCopyWithImpl<$Res,
+        $Val extends NewsHomePageResponse>
+    implements $NewsHomePageResponseCopyWith<$Res> {
+  _$NewsHomePageResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -55,7 +56,7 @@ class _$PolitikNewsCopyWithImpl<$Res, $Val extends PolitikNews>
   @override
   $Res call({
     Object? success = freezed,
-    Object? message = freezed,
+    Object? messege = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
@@ -63,9 +64,9 @@ class _$PolitikNewsCopyWithImpl<$Res, $Val extends PolitikNews>
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      messege: freezed == messege
+          ? _value.messege
+          : messege // ignore: cast_nullable_to_non_nullable
               as dynamic,
       data: freezed == data
           ? _value.data
@@ -88,42 +89,42 @@ class _$PolitikNewsCopyWithImpl<$Res, $Val extends PolitikNews>
 }
 
 /// @nodoc
-abstract class _$$PolitikNewsImplCopyWith<$Res>
-    implements $PolitikNewsCopyWith<$Res> {
-  factory _$$PolitikNewsImplCopyWith(
-          _$PolitikNewsImpl value, $Res Function(_$PolitikNewsImpl) then) =
-      __$$PolitikNewsImplCopyWithImpl<$Res>;
+abstract class _$$NewsHomePageResponseImplCopyWith<$Res>
+    implements $NewsHomePageResponseCopyWith<$Res> {
+  factory _$$NewsHomePageResponseImplCopyWith(_$NewsHomePageResponseImpl value,
+          $Res Function(_$NewsHomePageResponseImpl) then) =
+      __$$NewsHomePageResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? success, dynamic message, Data? data});
+  $Res call({bool? success, dynamic messege, Data? data});
 
   @override
   $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class __$$PolitikNewsImplCopyWithImpl<$Res>
-    extends _$PolitikNewsCopyWithImpl<$Res, _$PolitikNewsImpl>
-    implements _$$PolitikNewsImplCopyWith<$Res> {
-  __$$PolitikNewsImplCopyWithImpl(
-      _$PolitikNewsImpl _value, $Res Function(_$PolitikNewsImpl) _then)
+class __$$NewsHomePageResponseImplCopyWithImpl<$Res>
+    extends _$NewsHomePageResponseCopyWithImpl<$Res, _$NewsHomePageResponseImpl>
+    implements _$$NewsHomePageResponseImplCopyWith<$Res> {
+  __$$NewsHomePageResponseImplCopyWithImpl(_$NewsHomePageResponseImpl _value,
+      $Res Function(_$NewsHomePageResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? success = freezed,
-    Object? message = freezed,
+    Object? messege = freezed,
     Object? data = freezed,
   }) {
-    return _then(_$PolitikNewsImpl(
+    return _then(_$NewsHomePageResponseImpl(
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      messege: freezed == messege
+          ? _value.messege
+          : messege // ignore: cast_nullable_to_non_nullable
               as dynamic,
       data: freezed == data
           ? _value.data
@@ -135,73 +136,75 @@ class __$$PolitikNewsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PolitikNewsImpl implements _PolitikNews {
-  const _$PolitikNewsImpl(
-      {required this.success, required this.message, required this.data});
+class _$NewsHomePageResponseImpl implements _NewsHomePageResponse {
+  const _$NewsHomePageResponseImpl(
+      {required this.success, required this.messege, required this.data});
 
-  factory _$PolitikNewsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PolitikNewsImplFromJson(json);
+  factory _$NewsHomePageResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NewsHomePageResponseImplFromJson(json);
 
   @override
   final bool? success;
   @override
-  final dynamic message;
+  final dynamic messege;
   @override
   final Data? data;
 
   @override
   String toString() {
-    return 'PolitikNews(success: $success, message: $message, data: $data)';
+    return 'NewsHomePageResponse(success: $success, messege: $messege, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PolitikNewsImpl &&
+            other is _$NewsHomePageResponseImpl &&
             (identical(other.success, success) || other.success == success) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality().equals(other.messege, messege) &&
             (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, success, const DeepCollectionEquality().hash(message), data);
+      runtimeType, success, const DeepCollectionEquality().hash(messege), data);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PolitikNewsImplCopyWith<_$PolitikNewsImpl> get copyWith =>
-      __$$PolitikNewsImplCopyWithImpl<_$PolitikNewsImpl>(this, _$identity);
+  _$$NewsHomePageResponseImplCopyWith<_$NewsHomePageResponseImpl>
+      get copyWith =>
+          __$$NewsHomePageResponseImplCopyWithImpl<_$NewsHomePageResponseImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PolitikNewsImplToJson(
+    return _$$NewsHomePageResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _PolitikNews implements PolitikNews {
-  const factory _PolitikNews(
+abstract class _NewsHomePageResponse implements NewsHomePageResponse {
+  const factory _NewsHomePageResponse(
       {required final bool? success,
-      required final dynamic message,
-      required final Data? data}) = _$PolitikNewsImpl;
+      required final dynamic messege,
+      required final Data? data}) = _$NewsHomePageResponseImpl;
 
-  factory _PolitikNews.fromJson(Map<String, dynamic> json) =
-      _$PolitikNewsImpl.fromJson;
+  factory _NewsHomePageResponse.fromJson(Map<String, dynamic> json) =
+      _$NewsHomePageResponseImpl.fromJson;
 
   @override
   bool? get success;
   @override
-  dynamic get message;
+  dynamic get messege;
   @override
   Data? get data;
   @override
   @JsonKey(ignore: true)
-  _$$PolitikNewsImplCopyWith<_$PolitikNewsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$NewsHomePageResponseImplCopyWith<_$NewsHomePageResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Data _$DataFromJson(Map<String, dynamic> json) {
@@ -214,7 +217,7 @@ mixin _$Data {
   String? get image => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  List<PostPolitic>? get posts => throw _privateConstructorUsedError;
+  List<Post>? get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -231,7 +234,7 @@ abstract class $DataCopyWith<$Res> {
       String? image,
       String? description,
       String? title,
-      List<PostPolitic>? posts});
+      List<Post>? posts});
 }
 
 /// @nodoc
@@ -273,7 +276,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
       posts: freezed == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostPolitic>?,
+              as List<Post>?,
     ) as $Val);
   }
 }
@@ -290,7 +293,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       String? image,
       String? description,
       String? title,
-      List<PostPolitic>? posts});
+      List<Post>? posts});
 }
 
 /// @nodoc
@@ -329,7 +332,7 @@ class __$$DataImplCopyWithImpl<$Res>
       posts: freezed == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostPolitic>?,
+              as List<Post>?,
     ));
   }
 }
@@ -342,7 +345,7 @@ class _$DataImpl implements _Data {
       required this.image,
       required this.description,
       required this.title,
-      required final List<PostPolitic>? posts})
+      required final List<Post>? posts})
       : _posts = posts;
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
@@ -356,9 +359,9 @@ class _$DataImpl implements _Data {
   final String? description;
   @override
   final String? title;
-  final List<PostPolitic>? _posts;
+  final List<Post>? _posts;
   @override
-  List<PostPolitic>? get posts {
+  List<Post>? get posts {
     final value = _posts;
     if (value == null) return null;
     if (_posts is EqualUnmodifiableListView) return _posts;
@@ -409,7 +412,7 @@ abstract class _Data implements Data {
       required final String? image,
       required final String? description,
       required final String? title,
-      required final List<PostPolitic>? posts}) = _$DataImpl;
+      required final List<Post>? posts}) = _$DataImpl;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
@@ -422,19 +425,19 @@ abstract class _Data implements Data {
   @override
   String? get title;
   @override
-  List<PostPolitic>? get posts;
+  List<Post>? get posts;
   @override
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-PostPolitic _$PostPoliticFromJson(Map<String, dynamic> json) {
+Post _$PostFromJson(Map<String, dynamic> json) {
   return _Post.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PostPolitic {
+mixin _$Post {
   String? get link => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   DateTime? get pubDate => throw _privateConstructorUsedError;
@@ -443,15 +446,13 @@ mixin _$PostPolitic {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PostPoliticCopyWith<PostPolitic> get copyWith =>
-      throw _privateConstructorUsedError;
+  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostPoliticCopyWith<$Res> {
-  factory $PostPoliticCopyWith(
-          PostPolitic value, $Res Function(PostPolitic) then) =
-      _$PostPoliticCopyWithImpl<$Res, PostPolitic>;
+abstract class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) then) =
+      _$PostCopyWithImpl<$Res, Post>;
   @useResult
   $Res call(
       {String? link,
@@ -462,9 +463,9 @@ abstract class $PostPoliticCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PostPoliticCopyWithImpl<$Res, $Val extends PostPolitic>
-    implements $PostPoliticCopyWith<$Res> {
-  _$PostPoliticCopyWithImpl(this._value, this._then);
+class _$PostCopyWithImpl<$Res, $Val extends Post>
+    implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -506,7 +507,7 @@ class _$PostPoliticCopyWithImpl<$Res, $Val extends PostPolitic>
 }
 
 /// @nodoc
-abstract class _$$PostImplCopyWith<$Res> implements $PostPoliticCopyWith<$Res> {
+abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$$PostImplCopyWith(
           _$PostImpl value, $Res Function(_$PostImpl) then) =
       __$$PostImplCopyWithImpl<$Res>;
@@ -522,7 +523,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostPoliticCopyWith<$Res> {
 
 /// @nodoc
 class __$$PostImplCopyWithImpl<$Res>
-    extends _$PostPoliticCopyWithImpl<$Res, _$PostImpl>
+    extends _$PostCopyWithImpl<$Res, _$PostImpl>
     implements _$$PostImplCopyWith<$Res> {
   __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
       : super(_value, _then);
@@ -587,7 +588,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'PostPolitic(link: $link, title: $title, pubDate: $pubDate, description: $description, thumbnail: $thumbnail)';
+    return 'Post(link: $link, title: $title, pubDate: $pubDate, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
@@ -623,7 +624,7 @@ class _$PostImpl implements _Post {
   }
 }
 
-abstract class _Post implements PostPolitic {
+abstract class _Post implements Post {
   const factory _Post(
       {required final String? link,
       required final String? title,

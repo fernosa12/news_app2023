@@ -2,16 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/bloc/category_news/category_news_cubit.dart';
-import 'package:news_app/bloc/economy_news/economy_news_cubit.dart';
-import 'package:news_app/bloc/law_news/law_news_cubit.dart';
+import 'package:news_app/bloc/cubit/news_homepage_cubit.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
-import 'package:news_app/bloc/news_home_page/news_home_page_cubit.dart';
-import 'package:news_app/bloc/politik_news/politik_news_cubit.dart';
+import 'package:news_app/bloc/news_category/news_category_cubit.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
-import 'package:news_app/bloc/sport_news/sport_news_cubit.dart';
-import 'package:news_app/bloc/tech_news/tech_news_cubit.dart';
 import 'package:news_app/firebase_options.dart';
+import 'package:news_app/models/repository/news_home_page_repository_impl.dart';
+import 'package:news_app/models/repository/news_repository_impl.dart';
 import 'package:news_app/pagination/view/bookmark_view.dart';
 import 'package:news_app/pagination/view/home_view.dart';
 import 'package:news_app/pagination/view/login_view.dart';
@@ -41,7 +38,8 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/category',
-        builder: (BuildContext context, GoRouterState state) => CategoryView(),
+        builder: (BuildContext context, GoRouterState state) =>
+            const CategoryView(),
       ),
       GoRoute(
         path: '/bookmark',
@@ -76,33 +74,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SignUpCubit(),
         ),
-        BlocProvider(
-          create: (context) => PolitikNewsCubit(),
+        BlocProvider<NewsCategoryCubit>(
+          create: (context) => NewsCategoryCubit(NewsCategoryRepositoryImpl()),
         ),
         BlocProvider(
-          create: (context) => TechNewsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => LawNewsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => EconomyNewsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => SportNewsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => NewsHomePageCubit()..getNews(),
-        ),
-        BlocProvider(
-          create: (context) => CategoryNewsCubit(
-            context.read<PolitikNewsCubit>(),
-            context.read<LawNewsCubit>(),
-            context.read<EconomyNewsCubit>(),
-            context.read<TechNewsCubit>(),
-            context.read<SportNewsCubit>(),
-          ),
-        ),
+          create: (context) => NewsHomepageCubit(NewsHomePageRepositoryImpl()),
+        )
       ],
       child: MaterialApp.router(
         title: 'Flutter Demo',

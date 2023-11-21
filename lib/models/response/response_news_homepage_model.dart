@@ -1,17 +1,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'response_news_model.freezed.dart';
-part 'response_news_model.g.dart';
+part 'response_news_homepage_model.freezed.dart';
+part 'response_news_homepage_model.g.dart';
 
 @freezed
-class NewsModel with _$NewsModel {
-  const factory NewsModel({
+class NewsHomePageResponse with _$NewsHomePageResponse {
+  const factory NewsHomePageResponse({
     required bool? success,
     required dynamic messege,
     required Data? data,
-  }) = _NewsModel;
-  factory NewsModel.fromJson(Map<String, dynamic> json) =>
-      _$NewsModelFromJson(json);
+  }) = _NewsHomePageResponse;
+  factory NewsHomePageResponse.fromJson(Map<String, dynamic> json) =>
+      _$NewsHomePageResponseFromJson(json);
 }
 
 @freezed
