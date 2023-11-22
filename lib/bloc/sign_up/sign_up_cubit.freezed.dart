@@ -20,6 +20,7 @@ mixin _$SignUpState {
   bool get isValid => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get succesMessge => throw _privateConstructorUsedError;
+  String? get userNamed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $SignUpStateCopyWith<$Res> {
       {bool isLoading,
       bool isValid,
       String? errorMessage,
-      String? succesMessge});
+      String? succesMessge,
+      String? userNamed});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
     Object? isValid = null,
     Object? errorMessage = freezed,
     Object? succesMessge = freezed,
+    Object? userNamed = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -74,6 +77,10 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.succesMessge
           : succesMessge // ignore: cast_nullable_to_non_nullable
               as String?,
+      userNamed: freezed == userNamed
+          ? _value.userNamed
+          : userNamed // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -90,7 +97,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       {bool isLoading,
       bool isValid,
       String? errorMessage,
-      String? succesMessge});
+      String? succesMessge,
+      String? userNamed});
 }
 
 /// @nodoc
@@ -108,6 +116,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isValid = null,
     Object? errorMessage = freezed,
     Object? succesMessge = freezed,
+    Object? userNamed = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
@@ -126,6 +135,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.succesMessge
           : succesMessge // ignore: cast_nullable_to_non_nullable
               as String?,
+      userNamed: freezed == userNamed
+          ? _value.userNamed
+          : userNamed // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -137,7 +150,8 @@ class _$InitialImpl extends Initial {
       {this.isLoading = false,
       this.isValid = false,
       this.errorMessage,
-      this.succesMessge})
+      this.succesMessge,
+      this.userNamed})
       : super._();
 
   @override
@@ -150,10 +164,12 @@ class _$InitialImpl extends Initial {
   final String? errorMessage;
   @override
   final String? succesMessge;
+  @override
+  final String? userNamed;
 
   @override
   String toString() {
-    return 'SignUpState(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage, succesMessge: $succesMessge)';
+    return 'SignUpState(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage, succesMessge: $succesMessge, userNamed: $userNamed)';
   }
 
   @override
@@ -167,12 +183,14 @@ class _$InitialImpl extends Initial {
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.succesMessge, succesMessge) ||
-                other.succesMessge == succesMessge));
+                other.succesMessge == succesMessge) &&
+            (identical(other.userNamed, userNamed) ||
+                other.userNamed == userNamed));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoading, isValid, errorMessage, succesMessge);
+  int get hashCode => Object.hash(
+      runtimeType, isLoading, isValid, errorMessage, succesMessge, userNamed);
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +204,8 @@ abstract class Initial extends SignUpState {
       {final bool isLoading,
       final bool isValid,
       final String? errorMessage,
-      final String? succesMessge}) = _$InitialImpl;
+      final String? succesMessge,
+      final String? userNamed}) = _$InitialImpl;
   const Initial._() : super._();
 
   @override
@@ -197,6 +216,8 @@ abstract class Initial extends SignUpState {
   String? get errorMessage;
   @override
   String? get succesMessge;
+  @override
+  String? get userNamed;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

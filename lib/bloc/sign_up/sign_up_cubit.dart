@@ -26,7 +26,6 @@ class SignUpCubit extends Cubit<SignUpState> {
       await firestore.collection('users').doc(userCredential.user!.uid).set({
         'name': name,
         'phone': numberPhone,
-        // Anda bisa menambahkan lebih banyak field di sini sesuai kebutuhan
       });
       emit(state.copyWith(
           isLoading: false,
@@ -42,5 +41,15 @@ class SignUpCubit extends Cubit<SignUpState> {
           isLoading: false,
           succesMessge: null));
     }
+  }
+
+  Future<void> getUserData() async {
+    try {
+      User? user = _auth.currentUser;
+      if (user != null) {
+        DocumentSnapshot usertData =
+            await firestore.collection('users').doc(user.uid).get();
+      }
+    } catch (e) {}
   }
 }
