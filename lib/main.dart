@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, GoRouterState state) =>
             const CategoryView(),
       ),
-
       GoRoute(
         path: '/profile',
         builder: (BuildContext context, GoRouterState state) =>
@@ -61,7 +60,11 @@ class MyApp extends StatelessWidget {
           builder: (BuildContext context, GoRouterState state) {
             return BrowserView(uri: state.uri.queryParameters['uri'] ?? "");
           }),
-      // Add more routes here
+      // GoRoute(
+      //   path: '/splash', // Rute baru untuk splash screen
+      //   builder: (BuildContext context, GoRouterState state) =>
+      //       const SplashScreenView(),
+      // ),
     ],
   );
 

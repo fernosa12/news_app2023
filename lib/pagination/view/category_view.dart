@@ -94,7 +94,7 @@ class _CategoryViewState extends State<CategoryView> {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.date_range_rounded),
+                              const Icon(Icons.date_range_rounded),
                               Text(
                                 DateFormat('HH:mm EEE, dd MM yyyy')
                                     .format(newsItem.pubDate),

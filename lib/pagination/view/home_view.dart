@@ -43,8 +43,8 @@ class _HomePageBodyState extends State<HomePageBody> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category',
+            icon: Icon(Icons.trending_up),
+            label: 'Trending',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
