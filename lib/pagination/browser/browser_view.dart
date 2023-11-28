@@ -13,8 +13,10 @@ class BrowserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WebViewWidget(
-        controller: WebViewController()..loadRequest(Uri.parse(uri)),
+      body: SafeArea(
+        child: WebViewWidget(
+          controller: WebViewController()..loadRequest(Uri.parse(uri)),
+        ),
       ),
     );
   }
