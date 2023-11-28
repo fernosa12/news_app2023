@@ -9,6 +9,7 @@ import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
 import 'package:news_app/firebase_options.dart';
 import 'package:news_app/models/repository/news_home_page_repository_impl.dart';
 import 'package:news_app/models/repository/news_repository_impl.dart';
+import 'package:news_app/pagination/browser/browser_view.dart';
 import 'package:news_app/pagination/view/home_view.dart';
 import 'package:news_app/pagination/view/login_view.dart';
 import 'package:news_app/pagination/view/profile_vie.dart';
@@ -55,6 +56,11 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, GoRouterState state) =>
             const RegisterView(),
       ),
+      GoRoute(
+          path: '/browse',
+          builder: (BuildContext context, GoRouterState state) {
+            return BrowserView(uri: state.uri.queryParameters['uri'] ?? "");
+          }),
       // Add more routes here
     ],
   );

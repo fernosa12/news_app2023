@@ -166,19 +166,25 @@ class HomePage extends StatelessWidget {
                           : 'Date not available';
                       return ListTile(
                         onTap: () {
-                          context.go(
-                            "/profile/${post.description}",
-                          );
+                          context.push(Uri(
+                              path: '/browse',
+                              queryParameters: {'uri': post.link}).toString());
                         },
+                        subtitle: Text(post.description ?? "no description"),
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              formattedDate,
-                              style: const TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12.0,
-                              ),
+                            Row(
+                              children: [
+                                Icon(Icons.date_range_rounded),
+                                Text(
+                                  formattedDate,
+                                  style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12.0,
+                                  ),
+                                ),
+                              ],
                             ),
                             Text(
                               post.title ?? 'No title',

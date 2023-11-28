@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/bloc/news_category/news_category_cubit.dart';
 
@@ -79,23 +80,33 @@ class _CategoryViewState extends State<CategoryView> {
                   itemCount: state.newsList!.length,
                   itemBuilder: (context, index) {
                     final newsItem = state.newsList![index];
-                    String formattedDate = newsItem.pubDate != null
-                        ? DateFormat('EEE, MMM d, yyyy')
-                            .format(newsItem.pubDate)
-                        : 'Date not available';
+
                     return ListTile(
+                      onTap: () {
+                        context.push(Uri(
+                                path: '/browse',
+                                queryParameters: {'uri': newsItem.link})
+                            .toString());
+                      },
+                      subtitle: Text(newsItem.description),
                       title: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            formattedDate,
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12.0,
-                            ),
+                          Row(
+                            children: [
+                              Icon(Icons.date_range_rounded),
+                              Text(
+                                DateFormat('HH:mm EEE, dd MM yyyy')
+                                    .format(newsItem.pubDate),
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ],
                           ),
                           Text(
-                            newsItem.title ?? '',
+                            newsItem.title,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
