@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
-
 import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginView extends StatelessWidget {
@@ -43,18 +42,17 @@ class LoginView extends StatelessWidget {
                     child: TextFormField(
                       controller: emailController,
                       maxLength: 20,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: Colors.blueGrey,
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.email,
                         ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.blueGrey,
-                          ),
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         helperText: 'Enter your email address',
                       ),
@@ -66,18 +64,17 @@ class LoginView extends StatelessWidget {
                       controller: passwordController,
                       maxLength: 20,
                       obscureText: true,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                           color: Colors.blueGrey,
                         ),
-                        suffixIcon: Icon(
+                        suffixIcon: const Icon(
                           Icons.password,
                         ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.blueGrey,
-                          ),
+                        border: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.blue),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         helperText: 'Enter your password',
                       ),
