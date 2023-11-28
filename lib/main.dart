@@ -2,17 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/bloc/cubit/news_homepage_cubit.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
 import 'package:news_app/bloc/news_category/news_category_cubit.dart';
+import 'package:news_app/bloc/news_homepage/news_homepage_cubit.dart';
 import 'package:news_app/bloc/sign_up/sign_up_cubit.dart';
 import 'package:news_app/firebase_options.dart';
 import 'package:news_app/models/repository/news_home_page_repository_impl.dart';
 import 'package:news_app/models/repository/news_repository_impl.dart';
-import 'package:news_app/pagination/view/bookmark_view.dart';
 import 'package:news_app/pagination/view/home_view.dart';
 import 'package:news_app/pagination/view/login_view.dart';
-import 'package:news_app/pagination/view/profile_view.dart';
+import 'package:news_app/pagination/view/profile_vie.dart';
 import 'package:news_app/pagination/view/register_view.dart';
 
 import 'pagination/view/category_view.dart';
@@ -41,11 +40,7 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, GoRouterState state) =>
             const CategoryView(),
       ),
-      GoRoute(
-        path: '/bookmark',
-        builder: (BuildContext context, GoRouterState state) =>
-            const BookmarkView(),
-      ),
+
       GoRoute(
         path: '/profile',
         builder: (BuildContext context, GoRouterState state) =>

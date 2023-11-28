@@ -20,6 +20,8 @@ mixin _$LoginState {
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get successMessage => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
+  UserModel? get userModel => throw _privateConstructorUsedError;
   bool get isAuthenticated => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -38,7 +40,11 @@ abstract class $LoginStateCopyWith<$Res> {
       String? errorMessage,
       String? successMessage,
       String? token,
+      String? userId,
+      UserModel? userModel,
       bool isAuthenticated});
+
+  $UserModelCopyWith<$Res>? get userModel;
 }
 
 /// @nodoc
@@ -58,6 +64,8 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? errorMessage = freezed,
     Object? successMessage = freezed,
     Object? token = freezed,
+    Object? userId = freezed,
+    Object? userModel = freezed,
     Object? isAuthenticated = null,
   }) {
     return _then(_value.copyWith(
@@ -77,11 +85,31 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userModel: freezed == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
           : isAuthenticated // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res>? get userModel {
+    if (_value.userModel == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.userModel!, (value) {
+      return _then(_value.copyWith(userModel: value) as $Val);
+    });
   }
 }
 
@@ -98,7 +126,12 @@ abstract class _$$InitialImplCopyWith<$Res>
       String? errorMessage,
       String? successMessage,
       String? token,
+      String? userId,
+      UserModel? userModel,
       bool isAuthenticated});
+
+  @override
+  $UserModelCopyWith<$Res>? get userModel;
 }
 
 /// @nodoc
@@ -116,6 +149,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? errorMessage = freezed,
     Object? successMessage = freezed,
     Object? token = freezed,
+    Object? userId = freezed,
+    Object? userModel = freezed,
     Object? isAuthenticated = null,
   }) {
     return _then(_$InitialImpl(
@@ -135,6 +170,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userModel: freezed == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
           : isAuthenticated // ignore: cast_nullable_to_non_nullable
@@ -151,6 +194,8 @@ class _$InitialImpl implements Initial {
       this.errorMessage,
       this.successMessage,
       this.token,
+      this.userId,
+      this.userModel,
       this.isAuthenticated = false});
 
   @override
@@ -163,12 +208,16 @@ class _$InitialImpl implements Initial {
   @override
   final String? token;
   @override
+  final String? userId;
+  @override
+  final UserModel? userModel;
+  @override
   @JsonKey()
   final bool isAuthenticated;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, errorMessage: $errorMessage, successMessage: $successMessage, token: $token, isAuthenticated: $isAuthenticated)';
+    return 'LoginState(isLoading: $isLoading, errorMessage: $errorMessage, successMessage: $successMessage, token: $token, userId: $userId, userModel: $userModel, isAuthenticated: $isAuthenticated)';
   }
 
   @override
@@ -183,13 +232,16 @@ class _$InitialImpl implements Initial {
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
             (identical(other.token, token) || other.token == token) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel) &&
             (identical(other.isAuthenticated, isAuthenticated) ||
                 other.isAuthenticated == isAuthenticated));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isLoading, errorMessage,
-      successMessage, token, isAuthenticated);
+      successMessage, token, userId, userModel, isAuthenticated);
 
   @JsonKey(ignore: true)
   @override
@@ -204,6 +256,8 @@ abstract class Initial implements LoginState {
       final String? errorMessage,
       final String? successMessage,
       final String? token,
+      final String? userId,
+      final UserModel? userModel,
       final bool isAuthenticated}) = _$InitialImpl;
 
   @override
@@ -214,6 +268,10 @@ abstract class Initial implements LoginState {
   String? get successMessage;
   @override
   String? get token;
+  @override
+  String? get userId;
+  @override
+  UserModel? get userModel;
   @override
   bool get isAuthenticated;
   @override

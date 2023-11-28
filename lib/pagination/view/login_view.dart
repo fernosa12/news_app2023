@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
+
 import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginView extends StatelessWidget {
@@ -102,7 +103,7 @@ class LoginView extends StatelessWidget {
                       ? const CircularProgressIndicator()
                       : SignInButton(Buttons.google,
                           onPressed: () =>
-                              context.read<LoginCubit>().googleSign()),
+                              context.read<LoginCubit>().googleSign())
                 ],
               ),
             );

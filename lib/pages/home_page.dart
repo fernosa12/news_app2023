@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc/login/login_cubit.dart';
+
 import 'package:news_app/pagination/view/home_view.dart';
 
 class HomePageLanding extends StatelessWidget {

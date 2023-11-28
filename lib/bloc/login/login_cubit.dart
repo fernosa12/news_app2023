@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:news_app/models/response/user_model.dart';
 
 part 'login_cubit.freezed.dart';
 part 'login_state.dart';
@@ -33,11 +35,17 @@ class LoginCubit extends Cubit<LoginState> {
           await FirebaseAuth.instance.signInWithCredential(credential);
       if (userCredential.user != null) {
         String? token = await userCredential.user!.getIdToken(true);
+        var userModel = UserModel(
+            name: userCredential.user!.displayName,
+            email: userCredential.user!.email,
+            picture: userCredential.user!.photoURL);
+
         emit(state.copyWith(
             isLoading: false,
             isAuthenticated: true,
             successMessage: "Login berhasil!",
-            token: token ?? "Token is null"));
+            token: token ?? "Token is null",
+            userModel: userModel));
       } else {
         emit(state.copyWith(
             isLoading: false, errorMessage: "UserCredential.user is null!"));
@@ -54,11 +62,16 @@ class LoginCubit extends Cubit<LoginState> {
       if (userCredential.user != null) {
         // Mendapatkan token terbaru
         String? token = await userCredential.user!.getIdToken(true);
+        var userModel = UserModel(
+            name: userCredential.user!.displayName,
+            email: userCredential.user!.email,
+            picture: userCredential.user!.photoURL);
         emit(state.copyWith(
             isLoading: false,
             isAuthenticated: true,
             successMessage: "Login berhasil!",
-            token: token ?? "Token is null"));
+            token: token ?? "Token is null",
+            userModel: userModel));
       } else {
         // Handle user null
         emit(state.copyWith(

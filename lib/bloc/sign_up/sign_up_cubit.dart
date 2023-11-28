@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:news_app/models/response/user_model.dart';
 
 part 'sign_up_cubit.freezed.dart';
 part 'sign_up_state.dart';
@@ -26,11 +27,17 @@ class SignUpCubit extends Cubit<SignUpState> {
       await firestore.collection('users').doc(userCredential.user!.uid).set({
         'name': name,
         'phone': numberPhone,
+        'email': email,
+        'uid': userCredential.user!.uid
+
+        // Anda bisa menambahkan lebih banyak field di sini sesuai kebutuhan
       });
+      UserModel userModel = UserModel(name: name, email: email, picture: null);
       emit(state.copyWith(
           isLoading: false,
           isValid: true,
-          succesMessge: 'Pendaftaran Berhasil !'));
+          succesMessge: 'Pendaftaran Berhasil !',
+          userModel: userModel));
     } catch (e) {
       if (e is FirebaseAuthException) {
         print('Error code: ${e.code}');
@@ -41,15 +48,5 @@ class SignUpCubit extends Cubit<SignUpState> {
           isLoading: false,
           succesMessge: null));
     }
-  }
-
-  Future<void> getUserData() async {
-    try {
-      User? user = _auth.currentUser;
-      if (user != null) {
-        DocumentSnapshot usertData =
-            await firestore.collection('users').doc(user.uid).get();
-      }
-    } catch (e) {}
   }
 }

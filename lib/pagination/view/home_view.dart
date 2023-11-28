@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/bloc/cubit/news_homepage_cubit.dart';
-import 'package:news_app/pagination/view/bookmark_view.dart';
-import 'package:news_app/pagination/view/profile_view.dart';
+import 'package:news_app/bloc/news_homepage/news_homepage_cubit.dart';
+import 'package:news_app/pagination/view/profile_vie.dart';
 
 import 'category_view.dart';
 
@@ -31,12 +31,7 @@ class _HomePageBodyState extends State<HomePageBody> {
               _selectedIndex = index;
             });
           },
-          children: const [
-            HomePage(),
-            CategoryView(),
-            BookmarkView(),
-            ProfileView(),
-          ],
+          children: const [HomePage(), CategoryView(), ProfileView()],
         );
       }),
       bottomNavigationBar: BottomNavigationBar(
@@ -51,8 +46,6 @@ class _HomePageBodyState extends State<HomePageBody> {
             icon: Icon(Icons.category),
             label: 'Category',
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark), label: 'Bookmark'),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
@@ -80,9 +73,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Home',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+        centerTitle: true,
+        title: Image.asset(
+          'assets/images/newsUP.png', // Replace with your asset image path
+          fit: BoxFit.cover, // You can adjust this as needed
+          height: kToolbarHeight - 30, // Adjust the size accordingly
         ),
       ),
       body: BlocBuilder<NewsHomepageCubit, NewsHomepageState>(
@@ -170,20 +165,21 @@ class HomePage extends StatelessWidget {
                           ? DateFormat('EEE, MMM d, yyyy').format(post.pubDate!)
                           : 'Date not available';
                       return ListTile(
+                        onTap: () {
+                          context.go(
+                            "/profile/${post.description}",
+                          );
+                        },
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Teks untuk tanggal
                             Text(
-                              formattedDate, // Asumsikan 'post' memiliki property 'date'
+                              formattedDate,
                               style: const TextStyle(
-                                color:
-                                    Colors.grey, // Warna abu-abu untuk tanggal
-                                fontSize:
-                                    12.0, // Ukuran font yang lebih kecil untuk tanggal
+                                color: Colors.grey,
+                                fontSize: 12.0,
                               ),
                             ),
-                            // Teks untuk judul
                             Text(
                               post.title ?? 'No title',
                               style:

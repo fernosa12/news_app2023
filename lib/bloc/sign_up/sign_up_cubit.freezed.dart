@@ -20,7 +20,8 @@ mixin _$SignUpState {
   bool get isValid => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   String? get succesMessge => throw _privateConstructorUsedError;
-  String? get userNamed => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
+  UserModel? get userModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
@@ -38,7 +39,10 @@ abstract class $SignUpStateCopyWith<$Res> {
       bool isValid,
       String? errorMessage,
       String? succesMessge,
-      String? userNamed});
+      String? userName,
+      UserModel? userModel});
+
+  $UserModelCopyWith<$Res>? get userModel;
 }
 
 /// @nodoc
@@ -58,7 +62,8 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
     Object? isValid = null,
     Object? errorMessage = freezed,
     Object? succesMessge = freezed,
-    Object? userNamed = freezed,
+    Object? userName = freezed,
+    Object? userModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -77,11 +82,27 @@ class _$SignUpStateCopyWithImpl<$Res, $Val extends SignUpState>
           ? _value.succesMessge
           : succesMessge // ignore: cast_nullable_to_non_nullable
               as String?,
-      userNamed: freezed == userNamed
-          ? _value.userNamed
-          : userNamed // ignore: cast_nullable_to_non_nullable
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
+      userModel: freezed == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res>? get userModel {
+    if (_value.userModel == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.userModel!, (value) {
+      return _then(_value.copyWith(userModel: value) as $Val);
+    });
   }
 }
 
@@ -98,7 +119,11 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool isValid,
       String? errorMessage,
       String? succesMessge,
-      String? userNamed});
+      String? userName,
+      UserModel? userModel});
+
+  @override
+  $UserModelCopyWith<$Res>? get userModel;
 }
 
 /// @nodoc
@@ -116,7 +141,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? isValid = null,
     Object? errorMessage = freezed,
     Object? succesMessge = freezed,
-    Object? userNamed = freezed,
+    Object? userName = freezed,
+    Object? userModel = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
@@ -135,10 +161,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.succesMessge
           : succesMessge // ignore: cast_nullable_to_non_nullable
               as String?,
-      userNamed: freezed == userNamed
-          ? _value.userNamed
-          : userNamed // ignore: cast_nullable_to_non_nullable
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
+      userModel: freezed == userModel
+          ? _value.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
     ));
   }
 }
@@ -151,7 +181,8 @@ class _$InitialImpl extends Initial {
       this.isValid = false,
       this.errorMessage,
       this.succesMessge,
-      this.userNamed})
+      this.userName,
+      this.userModel})
       : super._();
 
   @override
@@ -165,11 +196,13 @@ class _$InitialImpl extends Initial {
   @override
   final String? succesMessge;
   @override
-  final String? userNamed;
+  final String? userName;
+  @override
+  final UserModel? userModel;
 
   @override
   String toString() {
-    return 'SignUpState(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage, succesMessge: $succesMessge, userNamed: $userNamed)';
+    return 'SignUpState(isLoading: $isLoading, isValid: $isValid, errorMessage: $errorMessage, succesMessge: $succesMessge, userName: $userName, userModel: $userModel)';
   }
 
   @override
@@ -184,13 +217,15 @@ class _$InitialImpl extends Initial {
                 other.errorMessage == errorMessage) &&
             (identical(other.succesMessge, succesMessge) ||
                 other.succesMessge == succesMessge) &&
-            (identical(other.userNamed, userNamed) ||
-                other.userNamed == userNamed));
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isLoading, isValid, errorMessage, succesMessge, userNamed);
+  int get hashCode => Object.hash(runtimeType, isLoading, isValid, errorMessage,
+      succesMessge, userName, userModel);
 
   @JsonKey(ignore: true)
   @override
@@ -205,7 +240,8 @@ abstract class Initial extends SignUpState {
       final bool isValid,
       final String? errorMessage,
       final String? succesMessge,
-      final String? userNamed}) = _$InitialImpl;
+      final String? userName,
+      final UserModel? userModel}) = _$InitialImpl;
   const Initial._() : super._();
 
   @override
@@ -217,7 +253,9 @@ abstract class Initial extends SignUpState {
   @override
   String? get succesMessge;
   @override
-  String? get userNamed;
+  String? get userName;
+  @override
+  UserModel? get userModel;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

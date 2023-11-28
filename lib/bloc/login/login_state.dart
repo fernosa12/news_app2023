@@ -7,6 +7,8 @@ class LoginState with _$LoginState {
     String? errorMessage,
     String? successMessage,
     String? token,
+    String? userId,
+    UserModel? userModel,
     @Default(false) bool isAuthenticated,
   }) = Initial;
 }
