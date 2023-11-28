@@ -81,8 +81,12 @@ class _ProfileViewState extends State<ProfileView> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          // ... other widgets ...
-
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset("assets/images/id_appbar.jpeg"),
+          ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.1,
             child: Padding(
